@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignWithParentIfMissing="false"
+    android:orientation="vertical">
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/bt_account"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/user"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/acc_bt_desript" />
+
+
+            <EditText
+                android:id="@+id/textEdit_find"
+                android:layout_width="150dp"
+                android:background="@drawable/find_background"
+                android:layout_height="50dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="25dp"
+                android:hint="@string/search_bar_hint"
+                android:textAlignment="center"
+                android:inputType="text"
+                android:layout_marginStart="150dp"
+                android:autofillHints="name"/>
+        </TableRow>
+
+    </TableLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="280dp" />
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center">
+
+        <Space
+            android:layout_width="130dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/bt_play"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:text="@string/playing_music_bt" />
+    </TableRow>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="50dp" >
+
+        <ImageButton
+            android:id="@+id/bt_wave_settings"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/gear"
+            app:layout_constraintBottom_toTopOf="@+id/nestedScrollView2"
+            app:layout_constraintEnd_toStartOf="@+id/bt_playing_music"
+            app:layout_constraintStart_toStartOf="parent"
+            android:contentDescription="@string/wave_settings_bt_descript"/>
+
+        <Button
+            android:id="@+id/bt_playing_music"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/playing_music_bt" />
+    </TableRow>
+
+</LinearLayout>
