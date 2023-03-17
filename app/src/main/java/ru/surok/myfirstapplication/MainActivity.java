@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import ru.surok.myfirstapplication.databinding.ActivityMainContraintBinding;
+
 public class MainActivity extends AppCompatActivity {
     private final int duration = Toast.LENGTH_SHORT;
     private static final String TAG = "Music app";
@@ -20,16 +22,29 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_contraint);
+        ActivityMainContraintBinding binding = ActivityMainContraintBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        binding.textView.setText(R.string.tv_hint);
+        binding.image.setImageResource(R.drawable.deathconsciousness);
+
+        binding.btPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String text = String.valueOf(binding.textEditFind.getText());
+                binding.textView.setText(text);
+                Log.i(TAG, "Новый текст");
+            }
+        });
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        ImageView iv = (ImageView) findViewById(R.id.image);
-        iv.setImageResource(R.drawable.deathconsciousness);
-        TextView tv = (TextView) findViewById(R.id.textView);
-        tv.setText(R.string.tv_hint);
+//        ImageView iv = (ImageView) findViewById(R.id.image);
+//        iv.setImageResource(R.drawable.deathconsciousness);
+//        TextView tv = (TextView) findViewById(R.id.textView);
+//        tv.setText(R.string.tv_hint);
     }
 
     @Override
@@ -50,18 +65,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        EditText et = (EditText)findViewById(R.id.textEdit_find);
-        TextView tv = (TextView) findViewById(R.id.textView);
-        ImageButton play_bt = findViewById(R.id.bt_play);
-        Button playing_music_bt = findViewById(R.id.bt_playing_music);
-        play_bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String text = String.valueOf(et.getText());
-                tv.setText(text);
-                Log.i(TAG, "Новый текст");
-            }
-        });
     }
 
     public void onClickForPlaying(View view){
