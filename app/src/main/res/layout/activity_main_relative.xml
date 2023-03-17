@@ -13,15 +13,6 @@
         android:contentDescription="@string/acc_bt_desript"
         android:background="@drawable/user"/>
 
-<!--    <Button-->
-<!--        android:id="@+id/bt_find"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentEnd="true"-->
-<!--        android:layout_marginEnd="25dp"-->
-<!--        android:layout_marginTop="25dp"-->
-<!--        android:text="@string/find_bt" />-->
-
 
     <EditText
         android:id="@+id/textEdit_find"

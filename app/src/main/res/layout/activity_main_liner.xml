@@ -60,7 +60,7 @@
             android:id="@+id/bt_play"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:text="@string/playing_music_bt" />
+            android:text="@string/play_bt" />
     </TableRow>
 
     <Space

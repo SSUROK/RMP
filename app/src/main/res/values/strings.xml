@@ -7,4 +7,5 @@
     <string name="wave_settings_bt_descript">Settings of your wave</string>
     <string name="search_bar_hint">Find your music</string>
     <string name="play_bt_descript">Play music</string>
+    <string name="tv_hint">Enter text in search bar and press play</string>
 </resources>
