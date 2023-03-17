@@ -1,6 +1,8 @@
 package ru.surok.myfirstapplication;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +13,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import ru.surok.myfirstapplication.databinding.ActivityMainContraintBinding;
@@ -18,6 +24,7 @@ import ru.surok.myfirstapplication.databinding.ActivityMainContraintBinding;
 public class MainActivity extends AppCompatActivity {
     private final int duration = Toast.LENGTH_SHORT;
     private static final String TAG = "Music app";
+    private ActivityResultLauncher<Intent> startFotRes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         ActivityMainContraintBinding binding = ActivityMainContraintBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.textView.setText(R.string.tv_hint);
+        binding.textView.setText(R.string.hint_tv);
         binding.image.setImageResource(R.drawable.deathconsciousness);
 
         binding.btPlay.setOnClickListener(new View.OnClickListener() {
@@ -36,6 +43,20 @@ public class MainActivity extends AppCompatActivity {
                 Log.i(TAG, "Новый текст");
             }
         });
+
+        startFotRes = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        if(result.getResultCode() == Activity.RESULT_OK) {
+                            Intent intent1 = result.getData();
+                            TextView tv = (TextView) findViewById(R.id.textView);
+                            tv.setText(intent1.getStringExtra("songSkipped"));
+                        }
+                    }
+                }
+        );
     }
 
     @Override
@@ -68,6 +89,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickForPlaying(View view){
-        Log.i(TAG, "А это кнопка для создания логов");
+        Intent intent = new Intent(this, SecondActivity.class);
+        intent.putExtra("albumCover", R.drawable.deathconsciousness);
+        EditText et = findViewById(R.id.textEdit_find);
+        intent.putExtra("songName", et.getText());
+        startFotRes.launch(intent);
     }
 }

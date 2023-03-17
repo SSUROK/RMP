@@ -7,5 +7,10 @@
     <string name="wave_settings_bt_descript">Settings of your wave</string>
     <string name="search_bar_hint">Find your music</string>
     <string name="play_bt_descript">Play music</string>
-    <string name="tv_hint">Enter text in search bar and press play</string>
+    <string name="hint_tv">Enter text in search bar and press play</string>
+    <string name="decript_album_cover">Song album cover</string>
+    <string name="decript_back_button">Button to get on previous screen</string>
+    <string name="decript_play_bt">Play music</string>
+    <string name="decript_prev_song">Switch to previous song</string>
+    <string name="decript_next_song">Switch to next song</string>
 </resources>
