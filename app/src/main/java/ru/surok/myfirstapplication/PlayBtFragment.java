@@ -23,17 +23,15 @@ public class PlayBtFragment extends Fragment {
     }
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         TextView tv = view.findViewById(R.id.textView);
         tv.setText(R.string.hint_tv);
-//        getParentFragmentManager().setFragmentResultListener("searchStr",
-//                this, new FragmentResultListener() {
-//            @Override
-//            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
-//                String result = bundle.getString("str");
-//            }
-//        });
         ImageButton bt_play = view.findViewById(R.id.bt_play);
         bt_play.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,5 +39,13 @@ public class PlayBtFragment extends Fragment {
                 tv.setText("Button pressed");
             }
         });
+
+        getParentFragmentManager().setFragmentResultListener("data_for_playbt_text",
+                this, new FragmentResultListener() {
+                    @Override
+                    public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                        tv.setText(result.getString("text"));
+                    }
+                });
     }
 }

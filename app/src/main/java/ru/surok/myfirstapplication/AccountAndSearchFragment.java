@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -51,6 +52,16 @@ public class AccountAndSearchFragment extends Fragment {
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
         Log.i(TAG, "view fragment created");
+
+        EditText et = view.findViewById(R.id.textEdit_find);
+        et.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("text", String.valueOf(et.getText()));
+                getParentFragmentManager().setFragmentResult("data_for_playbt_text", bundle);
+            }
+        });
 
     }
 

@@ -18,8 +18,24 @@ import ru.surok.myfirstapplication.databinding.SongCoverNameFragmentBinding;
 
 public class SongCoverNameFragment extends Fragment {
 
+    private static int album_cover;
+    private static String song_name;
+
     public SongCoverNameFragment() {
         super(R.layout.song_cover_name_fragment);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getParentFragmentManager().setFragmentResultListener("data_for_second_act",
+                this, new FragmentResultListener() {
+                    @Override
+                    public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                        album_cover = result.getInt("album_cover");
+                        song_name = result.getString("song_name");
+                    }
+                });
     }
 
     @Nullable
@@ -31,16 +47,14 @@ public class SongCoverNameFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        TextView tv = view.findViewById(R.id.song_name);
+        ImageView iv = view.findViewById(R.id.album_Image);
+        tv.setText(song_name);
+        iv.setImageResource(album_cover);
+    }
 
-        getParentFragmentManager().setFragmentResultListener("data_for_second_act",
-                this, new FragmentResultListener() {
-                    @Override
-                    public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                        ImageView iv = view.findViewById(R.id.album_Image);
-                        iv.setImageResource(result.getInt("album_cover"));
-                        TextView tv = view.findViewById(R.id.song_name);
-                        tv.setText(result.getString("song_name"));
-                    }
-                });
+    @Override
+    public void onStart() {
+        super.onStart();
     }
 }

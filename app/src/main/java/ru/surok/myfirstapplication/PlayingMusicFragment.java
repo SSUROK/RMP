@@ -25,12 +25,11 @@ public class PlayingMusicFragment extends Fragment {
             @Override
             public void onClick(View view1) {
                 Intent intent = new Intent(getActivity(), SecondActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("album_cover", R.drawable.deathconsciousness);
-                bundle.putString("song_name", "Bloodhail");
-                getParentFragmentManager().setFragmentResult("data_for_second_act", bundle);
+                intent.putExtra("album_cover", R.drawable.deathconsciousness);
+                intent.putExtra("song_name", "Bloodhail");
                 startActivity(intent);
             }
         });
+
     }
 }
