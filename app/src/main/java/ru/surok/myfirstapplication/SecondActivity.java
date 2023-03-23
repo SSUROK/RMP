@@ -16,21 +16,6 @@ public class SecondActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivitySecondBinding binding = ActivitySecondBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
-        Bundle args = getIntent().getExtras();
-        binding.albumImage.setImageResource((int) args.get("albumCover"));
-        binding.songName.setText(args.get("songName").toString());
-
-        binding.btNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent data = new Intent();
-                data.putExtra("songSkipped", "this song was boring");
-                setResult(RESULT_OK, data);
-                finish();
-            }
-        });
+        setContentView(R.layout.activity_second);
     }
 }

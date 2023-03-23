@@ -4,6 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/bt_playing_music"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignTop="@id/bt_wave_settings"
+        android:layout_toEndOf="@id/bt_wave_settings"
+        android:text="@string/playing_music_bt" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bt_playing_music"
+        android:layout_marginTop="0dp"
+        app:srcCompat="@drawable/deathconsciousness" />
+
     <ImageButton
         android:id="@+id/bt_account"
         android:layout_width="50dp"
@@ -13,6 +29,16 @@
         android:contentDescription="@string/acc_bt_desript"
         android:background="@drawable/user"/>
 
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textEdit_find"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="103dp"
+        android:text="TextView" />
 
     <EditText
         android:id="@+id/textEdit_find"
@@ -45,11 +71,5 @@
         android:background="@drawable/gear"
         android:contentDescription="@string/wave_settings_bt_descript"/>
 
-    <Button
-        android:id="@+id/bt_playing_music"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignTop="@id/bt_wave_settings"
-        android:layout_toEndOf="@id/bt_wave_settings"
-        android:text="@string/playing_music_bt" />
+
 </RelativeLayout>

@@ -6,98 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageButton
-        android:id="@+id/bt_wave_settings"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/gear"
-        app:layout_constraintBottom_toTopOf="@+id/image"
-        app:layout_constraintEnd_toStartOf="@+id/bt_playing_music"
-        app:layout_constraintStart_toStartOf="parent"
-        android:contentDescription="@string/wave_settings_bt_descript"/>
-
-    <ImageButton
-        android:id="@+id/bt_play"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="160dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/play_bt_background"
-        app:layout_constraintBottom_toTopOf="@+id/bt_playing_music"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/play_bt_descript" />
-
-<!--    <Button-->
-<!--        android:id="@+id/bt_find"-->
-<!--        android:layout_width="94dp"-->
-<!--        android:layout_height="56dp"-->
-<!--        android:layout_marginTop="25dp"-->
-<!--        android:layout_marginEnd="25dp"-->
-<!--        android:text="@string/find_bt"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-    <EditText
-        android:id="@+id/textEdit_find"
-        android:layout_width="150dp"
-        android:background="@drawable/find_background"
-        android:layout_height="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="25dp"
-        android:hint="@string/search_bar_hint"
-        android:textAlignment="center"
-        android:inputType="text"
-        android:autofillHints="name"/>
-
-
-    <ImageButton
-        android:id="@+id/bt_account"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/user"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/acc_bt_desript" />
-
-
-    <Button
-        android:id="@+id/bt_playing_music"
-        android:layout_width="360dp"
-        android:layout_height="50dp"
-        android:onClick="onClickForPlaying"
-        android:text="@string/playing_music_bt"
-        app:layout_constraintBottom_toTopOf="@+id/image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/bt_wave_settings" />
-
-    <ImageView
-        android:id="@+id/image"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/accountSearchView"
+        android:name="ru.surok.myfirstapplication.AccountAndSearchFragment"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="141dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout="@layout/account_search_menu_fragment" />
 
-    <TextView
-        android:id="@+id/textView"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/playingMusicView"
+        android:name="ru.surok.myfirstapplication.PlayingMusicFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout="@layout/playing_music_fragment" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView2"
+        android:name="ru.surok.myfirstapplication.PlayBtFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="205dp"
-        android:layout_marginEnd="206dp"
-        android:layout_marginBottom="40dp"
-        android:text=""
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@id/bt_play"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/play_bt_fragment" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

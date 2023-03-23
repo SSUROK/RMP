@@ -6,6 +6,12 @@
     android:layout_alignWithParentIfMissing="false"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="TextView" />
+
 
     <TableLayout
         android:layout_width="match_parent"
@@ -45,7 +51,11 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="280dp" />
+        android:layout_height="125dp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="125dp" />
 
     <TableRow
         android:layout_width="match_parent"
@@ -58,8 +68,8 @@
 
         <Button
             android:id="@+id/bt_play"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="@dimen/bt_size_w"
+            android:layout_height="@dimen/bt_size_h"
             android:text="@string/play_bt" />
     </TableRow>
 
@@ -86,6 +96,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/playing_music_bt" />
+
     </TableRow>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/deathconsciousness" />
 
 </LinearLayout>

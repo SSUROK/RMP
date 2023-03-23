@@ -6,81 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".SecondActivity">
 
-    <ImageView
-        android:id="@+id/albumImage"
-        android:layout_width="0dp"
-        android:layout_height="250dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="80dp"
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView5"
+        android:name="ru.surok.myfirstapplication.SongCoverNameFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_background"
-        android:contentDescription="@string/decript_album_cover" />
+        app:layout_constraintVertical_bias="0.274"
+        tools:layout="@layout/song_cover_name_fragment" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/albumImage" />
-
-    <ImageButton
-        android:id="@+id/bt_play"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="ru.surok.myfirstapplication.AudioBtFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="84dp"
+        android:layout_margin="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bt_next"
-        app:layout_constraintStart_toEndOf="@+id/bt_prev"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar"
-        app:srcCompat="@android:drawable/ic_media_play"
-        android:contentDescription="@string/play_bt_descript" />
-
-    <ImageButton
-        android:id="@+id/bt_next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="60dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/bt_play"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar"
-        app:srcCompat="@android:drawable/ic_media_next"
-        android:contentDescription="@string/decript_next_song" />
-
-    <ImageButton
-        android:id="@+id/bt_prev"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="40dp"
-        app:layout_constraintEnd_toStartOf="@id/bt_play"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/progressBar"
-        app:srcCompat="@android:drawable/ic_media_previous"
-        android:contentDescription="@string/decript_prev_song" />
-
-
-    <TextView
-        android:id="@+id/song_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="170dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginEnd="170dp"
-        android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/albumImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView5"
+        tools:layout="@layout/audio_bts_fragment" />
 </androidx.constraintlayout.widget.ConstraintLayout>
