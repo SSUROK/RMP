@@ -8,8 +8,7 @@
 
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView5"
-        android:name="ru.surok.myfirstapplication.SongCoverNameFragment"
+        android:id="@+id/songCoverNameView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,7 +20,7 @@
         tools:layout="@layout/song_cover_name_fragment" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView"
+        android:id="@+id/trackPlaySkipBtView"
         android:name="ru.surok.myfirstapplication.AudioBtFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,6 +28,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView5"
+        app:layout_constraintTop_toBottomOf="@+id/songCoverNameView"
         tools:layout="@layout/audio_bts_fragment" />
 </androidx.constraintlayout.widget.ConstraintLayout>

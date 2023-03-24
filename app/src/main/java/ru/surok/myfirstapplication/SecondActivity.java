@@ -19,7 +19,14 @@ public class SecondActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        Bundle args = getIntent().getExtras();
-        getSupportFragmentManager().setFragmentResult("data_for_second_act", args);
+        if (savedInstanceState == null){
+            Bundle args = getIntent().getExtras();
+            getSupportFragmentManager().beginTransaction().setReorderingAllowed(true)
+                    .add(R.id.songCoverNameView, SongCoverNameFragment.class, args).commit();
+        }
+
+//        setContentView(R.layout.activity_second);
+//        Bundle args = getIntent().getExtras();
+//        getSupportFragmentManager().setFragmentResult("data_for_second_act", args);
     }
 }

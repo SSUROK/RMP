@@ -15,9 +15,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import ru.surok.myfirstapplication.databinding.AccountSearchMenuFragmentBinding;
+
 public class AccountAndSearchFragment extends Fragment {
     private final int duration = Toast.LENGTH_SHORT;
     private static final String TAG = "Music app top fragment";
+    private AccountSearchMenuFragmentBinding binding;
 
     public AccountAndSearchFragment() {
         super(R.layout.account_search_menu_fragment);
@@ -26,39 +29,27 @@ public class AccountAndSearchFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        CharSequence text = "onCreate toast";
-        Context context = getActivity().getApplicationContext();
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-        Log.i(TAG, "creating fragment");
+
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        CharSequence text = "onCreateView toast";
-        Context context = getActivity().getApplicationContext();
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-        Log.i(TAG, "creating view fragment");
-        return super.onCreateView(inflater, container, savedInstanceState);
+        binding = AccountSearchMenuFragmentBinding.inflate(inflater, container, false);
+
+        return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        CharSequence text = "onViewCreate toast";
-        Context context = getActivity().getApplicationContext();
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-        Log.i(TAG, "view fragment created");
 
-        EditText et = view.findViewById(R.id.textEdit_find);
-        et.setOnClickListener(new View.OnClickListener() {
+
+        binding.textEditFind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
-                bundle.putString("text", String.valueOf(et.getText()));
+                bundle.putString("text", String.valueOf(binding.textEditFind.getText()));
                 getParentFragmentManager().setFragmentResult("data_for_playbt_text", bundle);
             }
         });
@@ -68,80 +59,48 @@ public class AccountAndSearchFragment extends Fragment {
     @Override
     public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
         super.onViewStateRestored(savedInstanceState);
-        CharSequence text = "onViewStateRestored toast";
-        Context context = getActivity().getApplicationContext();
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-        Log.i(TAG, "view restored fragment");
+
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        CharSequence text = "onStart toast";
-        Context context = getActivity().getApplicationContext();
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-        Log.i(TAG, "start fragment");
+
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        CharSequence text = "onResume toast";
-        Context context = getActivity().getApplicationContext();
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-        Log.i(TAG, "resume fragment");
+
     }
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        CharSequence text = "onSaveInstanceState toast";
-        Context context = getActivity().getApplicationContext();
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-        Log.i(TAG, "onSaveInstanceState fragment");
+
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        CharSequence text = "onPause toast";
-        Context context = getActivity().getApplicationContext();
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-        Log.i(TAG, "onPause fragment");
+
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        CharSequence text = "onStop toast";
-        Context context = getActivity().getApplicationContext();
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-        Log.i(TAG, "onStop fragment");
+
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        CharSequence text = "onDestroyView toast";
-        Context context = getActivity().getApplicationContext();
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-        Log.i(TAG, "onDestroyView fragment");
+
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        CharSequence text = "onDestroy toast";
-        Context context = getActivity().getApplicationContext();
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-        Log.i(TAG, "onDestroy fragment");
+
     }
 }

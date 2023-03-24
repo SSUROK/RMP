@@ -20,6 +20,7 @@ public class SongCoverNameFragment extends Fragment {
 
     private static int album_cover;
     private static String song_name;
+    private SongCoverNameFragmentBinding binding;
 
     public SongCoverNameFragment() {
         super(R.layout.song_cover_name_fragment);
@@ -28,29 +29,32 @@ public class SongCoverNameFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getParentFragmentManager().setFragmentResultListener("data_for_second_act",
-                this, new FragmentResultListener() {
-                    @Override
-                    public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                        album_cover = result.getInt("album_cover");
-                        song_name = result.getString("song_name");
-                    }
-                });
+        Bundle bundle = this.getArguments(); if (bundle != null) {
+            album_cover = bundle.getInt("album_cover");
+            song_name = bundle.getString("song_name");
+        }
+//        getParentFragmentManager().setFragmentResultListener("data_for_second_act",
+//                this, new FragmentResultListener() {
+//                    @Override
+//                    public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+//                        album_cover = result.getInt("album_cover");
+//                        song_name = result.getString("song_name");
+//                    }
+//                });
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+        binding = SongCoverNameFragmentBinding.inflate(inflater, container, false);
+        binding.songName.setText(song_name);
+        binding.albumImage.setImageResource(album_cover);
+        return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        TextView tv = view.findViewById(R.id.song_name);
-        ImageView iv = view.findViewById(R.id.album_Image);
-        tv.setText(song_name);
-        iv.setImageResource(album_cover);
     }
 
     @Override

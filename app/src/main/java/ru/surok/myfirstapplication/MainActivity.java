@@ -58,4 +58,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
     }
+
+    public void onClickCurrentTrack(View view){
+        Intent intent = new Intent(this, SecondActivity.class);
+        intent.putExtra("album_cover", R.drawable.deathconsciousness);
+        intent.putExtra("song_name", "Bloodhail");
+        startActivity(intent);
+    }
 }

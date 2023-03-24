@@ -16,16 +16,27 @@
         tools:layout="@layout/account_search_menu_fragment" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/playingMusicView"
+        android:id="@+id/musicLibraryView"
+        android:name="ru.surok.myfirstapplication.WaveSettingsMusicLibraryFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/playingTrackView"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="5dp"
+        tools:layout="@layout/wave_settings_music_library_fragment" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/playingTrackView"
         android:name="ru.surok.myfirstapplication.PlayingMusicFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="onClickCurrentTrack"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout="@layout/playing_music_fragment" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView2"
+        android:id="@+id/bigBtView"
         android:name="ru.surok.myfirstapplication.PlayBtFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

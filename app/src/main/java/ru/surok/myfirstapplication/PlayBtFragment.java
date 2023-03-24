@@ -30,7 +30,7 @@ public class PlayBtFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        TextView tv = view.findViewById(R.id.textView);
+        TextView tv = view.findViewById(R.id.play_bt_textview);
         tv.setText(R.string.hint_tv);
         ImageButton bt_play = view.findViewById(R.id.bt_play);
         bt_play.setOnClickListener(new View.OnClickListener() {

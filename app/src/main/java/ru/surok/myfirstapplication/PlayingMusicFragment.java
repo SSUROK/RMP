@@ -2,10 +2,10 @@ package ru.surok.myfirstapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,19 +17,9 @@ public class PlayingMusicFragment extends Fragment {
         super(R.layout.playing_music_fragment);
     }
 
+    @Nullable
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        Button ib = view.findViewById(R.id.bt_playing_music);
-        ib.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view1) {
-                Intent intent = new Intent(getActivity(), SecondActivity.class);
-                intent.putExtra("album_cover", R.drawable.deathconsciousness);
-                intent.putExtra("song_name", "Bloodhail");
-                startActivity(intent);
-            }
-        });
-
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 }
