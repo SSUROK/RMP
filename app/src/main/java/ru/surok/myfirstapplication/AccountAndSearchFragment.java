@@ -13,8 +13,6 @@ import androidx.fragment.app.Fragment;
 import ru.surok.myfirstapplication.databinding.FragmentAccountSearchBinding;
 
 public class AccountAndSearchFragment extends Fragment {
-    private final int duration = Toast.LENGTH_SHORT;
-    private static final String TAG = "Music app top fragment";
     private FragmentAccountSearchBinding binding;
 
     public AccountAndSearchFragment() {
