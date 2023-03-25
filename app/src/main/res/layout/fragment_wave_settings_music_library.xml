@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/bt_playing_music"
+        android:id="@+id/bt_music_library"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="25dp"

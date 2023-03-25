@@ -1,11 +1,7 @@
 package ru.surok.myfirstapplication;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -14,12 +10,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
 
-import ru.surok.myfirstapplication.databinding.ActivityMainContraintBinding;
-
 public class PlayBtFragment extends Fragment {
 
     public PlayBtFragment() {
-        super(R.layout.play_bt_fragment);
+        super(R.layout.fragment_play_bt);
     }
 
     @Override

@@ -9,7 +9,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFirstApplication">
         <activity
-            android:name=".SecondActivity"
+            android:name=".PlayingNextActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SongLibraryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PlayingSongActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

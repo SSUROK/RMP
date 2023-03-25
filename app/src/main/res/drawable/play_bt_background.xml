@@ -2,8 +2,8 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:gravity="center"
-        android:width="150dp"
-        android:height="150dp">
+        android:width="@dimen/bt_big_size_w"
+        android:height="@dimen/bt_big_size_w">
         <shape android:shape="oval">
             <solid android:color="@color/purple_700"/>
         </shape>

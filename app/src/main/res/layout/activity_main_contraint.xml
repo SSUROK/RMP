@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout="@layout/account_search_menu_fragment" />
+        tools:layout="@layout/fragment_account_search" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/musicLibraryView"
@@ -23,7 +23,7 @@
         app:layout_constraintBottom_toTopOf="@id/playingTrackView"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginBottom="5dp"
-        tools:layout="@layout/wave_settings_music_library_fragment" />
+        tools:layout="@layout/fragment_wave_settings_music_library" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/playingTrackView"
@@ -33,7 +33,7 @@
         android:onClick="onClickCurrentTrack"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout="@layout/playing_music_fragment" />
+        tools:layout="@layout/fragment_playing_music" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/bigBtView"
@@ -44,6 +44,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/play_bt_fragment" />
+        tools:layout="@layout/fragment_play_bt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

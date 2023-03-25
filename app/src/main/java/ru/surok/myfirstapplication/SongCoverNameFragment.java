@@ -1,29 +1,24 @@
 package ru.surok.myfirstapplication;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentResultListener;
 
-import ru.surok.myfirstapplication.databinding.ActivitySecondBinding;
-import ru.surok.myfirstapplication.databinding.SongCoverNameFragmentBinding;
+import ru.surok.myfirstapplication.databinding.FragmentSongCoverNameBinding;
 
 public class SongCoverNameFragment extends Fragment {
 
     private static int album_cover;
     private static String song_name;
-    private SongCoverNameFragmentBinding binding;
+    private FragmentSongCoverNameBinding binding;
 
     public SongCoverNameFragment() {
-        super(R.layout.song_cover_name_fragment);
+        super(R.layout.fragment_song_cover_name);
     }
 
     @Override
@@ -46,7 +41,7 @@ public class SongCoverNameFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = SongCoverNameFragmentBinding.inflate(inflater, container, false);
+        binding = FragmentSongCoverNameBinding.inflate(inflater, container, false);
         binding.songName.setText(song_name);
         binding.albumImage.setImageResource(album_cover);
         return binding.getRoot();
