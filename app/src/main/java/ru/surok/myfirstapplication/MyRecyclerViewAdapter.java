@@ -32,8 +32,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         return new ViewHolder(view);
     }
     @Override
-    public void
-    onBindViewHolder(MyRecyclerViewAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(MyRecyclerViewAdapter.ViewHolder holder, int position) {
         Item item = items.get(position);
         holder.textView.setText(item.getText());
         holder.imageView.setImageResource(item.getImg());

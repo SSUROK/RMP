@@ -10,6 +10,7 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import ru.surok.myfirstapplication.databinding.FragmentWaveSettingsMusicLibraryBinding;
 
@@ -28,8 +29,7 @@ public class WaveSettingsMusicLibraryFragment extends Fragment {
         binding.btMusicLibrary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view1) {
-                Intent intent = new Intent(getActivity(), SongLibraryActivity.class);
-                startActivity(intent);
+                Navigation.findNavController(view1).navigate(R.id.action_mainPage_to_songLibraryActivity);
             }
         });
 

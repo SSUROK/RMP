@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentContainerView;
+import androidx.navigation.Navigation;
 
 import ru.surok.myfirstapplication.databinding.FragmentAudioBtsBinding;
 
@@ -29,18 +30,10 @@ public class AudioBtFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentAudioBtsBinding.inflate(inflater, container, false);
-//        binding.btNextPlaying.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                FragmentContainerView fcv =  view.findViewById(R.id.playingNextContainerView);
-//                fcv.setVisibility(View.VISIBLE);
-//            }
-//        });
         binding.btNextPlaying.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), PlayingNextActivity.class);
-                startActivity(intent);
+                Navigation.findNavController(view).navigate(R.id.action_playingSong_to_playingNextFragment);
             }
         });
         return binding.getRoot();

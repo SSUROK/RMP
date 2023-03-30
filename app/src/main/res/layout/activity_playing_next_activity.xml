@@ -6,14 +6,5 @@
     android:layout_height="match_parent"
     tools:context=".PlayingNextActivity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView2"
-        android:name="ru.surok.myfirstapplication.PlayingNextFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/fragment_playing_next" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

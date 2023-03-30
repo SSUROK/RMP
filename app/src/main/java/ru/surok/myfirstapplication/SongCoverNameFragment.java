@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentResultListener;
 
 import ru.surok.myfirstapplication.databinding.FragmentSongCoverNameBinding;
 
@@ -24,18 +25,11 @@ public class SongCoverNameFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Bundle bundle = this.getArguments(); if (bundle != null) {
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
             album_cover = bundle.getInt("album_cover");
             song_name = bundle.getString("song_name");
         }
-//        getParentFragmentManager().setFragmentResultListener("data_for_second_act",
-//                this, new FragmentResultListener() {
-//                    @Override
-//                    public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-//                        album_cover = result.getInt("album_cover");
-//                        song_name = result.getString("song_name");
-//                    }
-//                });
     }
 
     @Nullable
