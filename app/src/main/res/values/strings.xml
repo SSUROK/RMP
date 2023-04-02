@@ -13,4 +13,8 @@
     <string name="decript_play_bt">Play music</string>
     <string name="decript_prev_song">Switch to previous song</string>
     <string name="decript_next_song">Switch to next song</string>
+    <string name="CHANNEL_ID">SUROK_MUSIC_APP</string>
+    <string name="CHANNEL_NAME">Music App</string>
+    <string name="CHANNEL_DESCRIPTION">Notifications about next playing track</string>
+    <string name="next_track">Next Track</string>
 </resources>
