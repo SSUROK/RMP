@@ -25,6 +25,7 @@ import ru.surok.myfirstapplication.databinding.FragmentPlayBtBinding;
 public class PlayBtFragment extends Fragment {
 
     private FragmentPlayBtBinding binding;
+    private Intent serviceIntent;
 
     public PlayBtFragment() {
         super(R.layout.fragment_play_bt);
@@ -45,13 +46,20 @@ public class PlayBtFragment extends Fragment {
         binding.btPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showPlayingSongNotification();
-                Intent intent = new Intent(getActivity(), PlayMusicService.class);
-                getActivity().startService(intent);
+//                showPlayingSongNotification();
+                serviceIntent = new Intent(getActivity(), PlayMusicService.class);
+                getActivity().startService(serviceIntent);
             }
         });
 
         return binding.getRoot();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (serviceIntent != null)
+            getActivity().stopService(serviceIntent);
     }
 
     private void showPlayingSongNotification(){

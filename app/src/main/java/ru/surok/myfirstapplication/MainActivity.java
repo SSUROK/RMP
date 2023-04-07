@@ -19,6 +19,7 @@ import ru.surok.myfirstapplication.databinding.ActivityMainContraintBinding;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityResultLauncher<Intent> startFotRes;
+//    private Intent serviceIntent;
 
     private final int PERMISSION_REQUEST_CODE = 1111;
     private ActivityMainContraintBinding binding;
@@ -65,7 +66,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-//    @Override
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Intent serviceIntent = new Intent(this, GetBackService.class);
+        startService(serviceIntent);
+    }
+
+    //    @Override
 //    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 //        if (requestCode == PERMISSION_REQUEST_CODE && grantResults.length == 1){
 //            if ()

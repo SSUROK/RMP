@@ -2,6 +2,7 @@ package ru.surok.myfirstapplication;
 
 import android.Manifest;
 import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.BroadcastReceiver;
@@ -23,7 +24,8 @@ import androidx.core.content.ContextCompat;
 public class PlayMusicService extends Service implements MediaPlayer.OnPreparedListener {
 
     private MediaPlayer mediaPlayer;
-    NotificationCompat.Builder builder;
+    private NotificationCompat.Builder builder;
+    private NotificationManagerCompat notificationManager;
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -55,10 +57,11 @@ public class PlayMusicService extends Service implements MediaPlayer.OnPreparedL
         builder = new NotificationCompat.Builder(this,
                 getString(R.string.CHANNEL_ID))
                 .setSmallIcon(R.drawable.ic_launcher_foreground)
+                .setContentTitle("Music App")
                 .setStyle(mediaStyle);
         builder.addAction(testAction);
 
-        NotificationManagerCompat notificationManager = NotificationManagerCompat
+        notificationManager = NotificationManagerCompat
                 .from(this);
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
                 == PackageManager.PERMISSION_GRANTED) {
@@ -74,5 +77,11 @@ public class PlayMusicService extends Service implements MediaPlayer.OnPreparedL
     @Override
     public void onPrepared(MediaPlayer player) {
 //        player.start();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        notificationManager.cancel(1);
     }
 }

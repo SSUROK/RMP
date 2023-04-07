@@ -1,13 +1,11 @@
 package ru.surok.myfirstapplication;
 
-import static android.content.Context.WINDOW_SERVICE;
-
-import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
+import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.os.Build;
+import android.os.IBinder;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -15,7 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
-public class MediaBroadcastReceiver extends BroadcastReceiver {
+import androidx.annotation.Nullable;
+
+public class GetBackService extends Service {
 
     private Context context;
     private View mView;
@@ -23,36 +23,30 @@ public class MediaBroadcastReceiver extends BroadcastReceiver {
     private WindowManager mWindowManager;
     private LayoutInflater layoutInflater;
 
+    @Nullable
     @Override
-    public void onReceive(Context context, Intent intent) {
-        this.context=context;
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
 
-        // set the layout parameters of the window
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+
+        this.context=getApplicationContext();
+
         mParams = new WindowManager.LayoutParams(
-                // Shrink the window to wrap the content rather
-                // than filling the screen
                 WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT,
-                // Display it on top of other application windows
                 WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
-                // Don't let it grab the input focus
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
-                // Make the underlying application window visible
-                // through any transparent parts
                 PixelFormat.TRANSLUCENT);
-        // getting a LayoutInflater
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        // inflating the view with the custom layout we created
         mView = layoutInflater.inflate(R.layout.popup_window, null);
-        // set onClickListener on the remove button, which removes
-        // the view from the window
         mView.findViewById(R.id.window_close).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 close();
             }
         });
-        // Define the position of the
-        // window within the screen
         mParams.gravity = Gravity.CENTER;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             mWindowManager = (WindowManager)context.getSystemService(WINDOW_SERVICE);
@@ -64,10 +58,7 @@ public class MediaBroadcastReceiver extends BroadcastReceiver {
                 openApp();
             }
         });
-
         try {
-            // check if the view is already
-            // inflated or present in the window
             if(mView.getWindowToken()==null) {
                 if(mView.getParent()==null) {
                     mWindowManager.addView(mView, mParams);
@@ -76,20 +67,16 @@ public class MediaBroadcastReceiver extends BroadcastReceiver {
         } catch (Exception e) {
             Log.d("Error1",e.toString());
         }
+
+        return super.onStartCommand(intent, flags, startId);
     }
 
     public void close() {
 
         try {
-            // remove the view from the window
             ((WindowManager)context.getSystemService(WINDOW_SERVICE)).removeView(mView);
-            // invalidate the view
             mView.invalidate();
-            // remove all views
             ((ViewGroup)mView.getParent()).removeAllViews();
-
-            // the above steps are necessary when you are adding and removing
-            // the view simultaneously, it might give some exceptions
         } catch (Exception e) {
             Log.d("Error2",e.toString());
         }

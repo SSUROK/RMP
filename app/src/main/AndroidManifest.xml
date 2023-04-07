@@ -17,8 +17,11 @@
         </receiver>
         <service android:name=".PlayMusicService"
             android:enabled="true"
-            android:exported="true"
+            android:exported="false"
             android:foregroundServiceType="mediaPlayback" />
+        <service android:name=".GetBackService"
+            android:enabled="true"
+            android:exported="true" />
         <activity
             android:name=".PlayingNextActivity"
             android:exported="false" />
