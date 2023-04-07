@@ -1,6 +1,7 @@
 package ru.surok.myfirstapplication;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,6 +17,8 @@ import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
+
+import java.util.Timer;
 
 import ru.surok.myfirstapplication.databinding.FragmentPlayBtBinding;
 
@@ -43,9 +46,11 @@ public class PlayBtFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 showPlayingSongNotification();
-                System.out.println("test");
+                Intent intent = new Intent(getActivity(), PlayMusicService.class);
+                getActivity().startService(intent);
             }
         });
+
         return binding.getRoot();
     }
 
@@ -61,8 +66,6 @@ public class PlayBtFragment extends Fragment {
         if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.POST_NOTIFICATIONS)
         == PackageManager.PERMISSION_GRANTED) {
             notificationManager.notify(1, builder.build());
-        }else{
-            System.out.println("not granted");
         }
     }
 
