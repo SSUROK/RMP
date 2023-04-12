@@ -1,4 +1,4 @@
-package ru.surok.myfirstapplication;
+package ru.surok.myfirstapplication.UI;
 
 import android.os.Bundle;
 
@@ -7,17 +7,18 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
+import ru.surok.myfirstapplication.R;
+import ru.surok.myfirstapplication.UI.AudioBtFragment;
+import ru.surok.myfirstapplication.UI.SongCoverNameFragment;
 import ru.surok.myfirstapplication.databinding.FragmentPlayingSongBinding;
 
-public class PlayingSong extends Fragment {
+public class PlayingSongFragment extends Fragment {
 
     private String songName;
     private int albumCover;
 
-    public PlayingSong() {
+    public PlayingSongFragment() {
         // Required empty public constructor
     }
 

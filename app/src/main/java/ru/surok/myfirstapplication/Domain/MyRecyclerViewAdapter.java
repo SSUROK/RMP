@@ -1,4 +1,4 @@
-package ru.surok.myfirstapplication;
+package ru.surok.myfirstapplication.Domain;
 
 import android.content.Context;
 import android.util.Log;
@@ -13,13 +13,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import ru.surok.myfirstapplication.Data.ListItem;
+import ru.surok.myfirstapplication.R;
+
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
 
     private final LayoutInflater inflater;
-    private final List<Item> items;
+    private final List<ListItem> items;
     private final int resource;
     private final Context context;
-    MyRecyclerViewAdapter(Context context, int resource,  List<Item> items) {
+    public MyRecyclerViewAdapter(Context context, int resource, List<ListItem> items) {
         this.items = items;
         this.inflater = LayoutInflater.from(context);
         this.resource = resource;
@@ -33,7 +36,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     }
     @Override
     public void onBindViewHolder(MyRecyclerViewAdapter.ViewHolder holder, int position) {
-        Item item = items.get(position);
+        ListItem item = items.get(position);
         holder.textView.setText(item.getText());
         holder.imageView.setImageResource(item.getImg());
         holder.itemView.setOnClickListener(new View.OnClickListener() {

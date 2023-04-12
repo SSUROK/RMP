@@ -1,4 +1,4 @@
-package ru.surok.myfirstapplication;
+package ru.surok.myfirstapplication.UI;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
 
+import ru.surok.myfirstapplication.R;
 import ru.surok.myfirstapplication.databinding.FragmentSongCoverNameBinding;
 
 public class SongCoverNameFragment extends Fragment {
@@ -34,7 +35,8 @@ public class SongCoverNameFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         binding = FragmentSongCoverNameBinding.inflate(inflater, container, false);
         binding.songName.setText(song_name);
         binding.albumImage.setImageResource(album_cover);

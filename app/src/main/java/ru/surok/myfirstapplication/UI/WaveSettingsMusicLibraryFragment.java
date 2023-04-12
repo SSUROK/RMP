@@ -1,4 +1,4 @@
-package ru.surok.myfirstapplication;
+package ru.surok.myfirstapplication.UI;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import ru.surok.myfirstapplication.R;
 import ru.surok.myfirstapplication.databinding.FragmentWaveSettingsMusicLibraryBinding;
 
 public class WaveSettingsMusicLibraryFragment extends Fragment {
@@ -24,12 +25,15 @@ public class WaveSettingsMusicLibraryFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentWaveSettingsMusicLibraryBinding.inflate(inflater, container, false);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        binding = FragmentWaveSettingsMusicLibraryBinding.inflate(inflater,
+                container, false);
         binding.btMusicLibrary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view1) {
-                Navigation.findNavController(view1).navigate(R.id.action_mainPage_to_songLibraryActivity);
+                Navigation.findNavController(view1)
+                        .navigate(R.id.action_mainPage_to_songLibraryActivity);
             }
         });
 
