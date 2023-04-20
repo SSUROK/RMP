@@ -1,4 +1,4 @@
-package ru.surok.myfirstapplication.Domain;
+package ru.surok.myfirstapplication.Domain.Adapters;
 
 import android.content.Context;
 import android.util.Log;

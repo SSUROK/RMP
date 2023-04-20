@@ -6,7 +6,7 @@ import java.util.List;
 import ru.surok.myfirstapplication.Data.ListItem;
 import ru.surok.myfirstapplication.R;
 
-public class ListsFiller {
+public class ListsFillerUseCase {
 
     public List<ListItem> generateList(){
         List<ListItem> list = new ArrayList<>();

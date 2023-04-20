@@ -9,12 +9,15 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
+import ru.surok.myfirstapplication.Domain.PlayingTrackViewModel;
 import ru.surok.myfirstapplication.R;
 import ru.surok.myfirstapplication.databinding.FragmentAccountSearchBinding;
 
 public class AccountAndSearchFragment extends Fragment {
     private FragmentAccountSearchBinding binding;
+    private PlayingTrackViewModel searchViewModel;
 
     public AccountAndSearchFragment() {
         super(R.layout.fragment_account_search);
@@ -23,7 +26,8 @@ public class AccountAndSearchFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        searchViewModel = new ViewModelProvider(getActivity()).get(PlayingTrackViewModel.class);
+        System.out.println(searchViewModel);
     }
 
     @Nullable
@@ -33,9 +37,7 @@ public class AccountAndSearchFragment extends Fragment {
         binding.textEditFind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle bundle = new Bundle();
-                bundle.putString("text", String.valueOf(binding.textEditFind.getText()));
-                getParentFragmentManager().setFragmentResult("data_for_playbt_text", bundle);
+                searchViewModel.setTrack(binding.textEditFind.getText().toString());
             }
         });
         return binding.getRoot();

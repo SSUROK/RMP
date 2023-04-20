@@ -8,50 +8,43 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentResultListener;
 import androidx.lifecycle.ViewModelProvider;
 
 import ru.surok.myfirstapplication.Domain.PlayingTrackViewModel;
 import ru.surok.myfirstapplication.R;
-import ru.surok.myfirstapplication.databinding.FragmentSongCoverNameBinding;
+import ru.surok.myfirstapplication.databinding.FragmentBottomPlayerBinding;
 
-public class SongCoverNameFragment extends Fragment {
+public class BottomPlayerFragment extends Fragment {
 
-    private static int album_cover;
-    private static String song_name;
-    private FragmentSongCoverNameBinding binding;
     private PlayingTrackViewModel model;
 
-    public SongCoverNameFragment() {
-        super(R.layout.fragment_song_cover_name);
+    public BottomPlayerFragment() {
+        super(R.layout.fragment_bottom_player);
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        model = new ViewModelProvider(this)
-                .get(PlayingTrackViewModel.class);
+        model = new ViewModelProvider(getActivity()).get(PlayingTrackViewModel.class);
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        binding = FragmentSongCoverNameBinding.inflate(inflater, container, false);
+        FragmentBottomPlayerBinding binding = FragmentBottomPlayerBinding.inflate(inflater, container,
+                false);
         model.getTrack().observe(getViewLifecycleOwner(), track ->{
+            binding.songCover.setImageResource(track.getImg());
             binding.songName.setText(track.getName());
-            binding.albumImage.setImageResource(track.getImg());
+            binding.songBand.setText(track.getBand());
+        });
+        binding.btPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println(model.getTrack().getValue().getName());
+            }
         });
         return binding.getRoot();
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
     }
 }

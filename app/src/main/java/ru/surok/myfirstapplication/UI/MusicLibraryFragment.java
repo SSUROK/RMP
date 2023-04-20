@@ -9,8 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import ru.surok.myfirstapplication.Domain.ListsFiller;
-import ru.surok.myfirstapplication.Domain.MyRecyclerViewAdapter;
+import ru.surok.myfirstapplication.Domain.ListsFillerUseCase;
+import ru.surok.myfirstapplication.Domain.Adapters.MyRecyclerViewAdapter;
 import ru.surok.myfirstapplication.R;
 import ru.surok.myfirstapplication.databinding.FragmentMusicLibraryBinding;
 
@@ -26,7 +26,7 @@ public class MusicLibraryFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         FragmentMusicLibraryBinding binding = FragmentMusicLibraryBinding.inflate(inflater, container, false);
-        ListsFiller lf = new ListsFiller();
+        ListsFillerUseCase lf = new ListsFillerUseCase();
         adapter = new MyRecyclerViewAdapter(getActivity(), R.layout.custom_list_view, lf.generateList());
         binding.songLibraryList.setAdapter(adapter);
 

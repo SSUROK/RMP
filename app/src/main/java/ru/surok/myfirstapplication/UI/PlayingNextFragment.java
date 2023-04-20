@@ -12,8 +12,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
-import ru.surok.myfirstapplication.Domain.ListsFiller;
-import ru.surok.myfirstapplication.Domain.MyListViewAdapter;
+import ru.surok.myfirstapplication.Domain.ListsFillerUseCase;
+import ru.surok.myfirstapplication.Domain.Adapters.MyListViewAdapter;
 import ru.surok.myfirstapplication.R;
 import ru.surok.myfirstapplication.databinding.FragmentPlayingNextBinding;
 
@@ -31,7 +31,7 @@ public class PlayingNextFragment extends Fragment {
                              Bundle savedInstanceState) {
         FragmentPlayingNextBinding binding = FragmentPlayingNextBinding.inflate(inflater,
                 container, false);
-        ListsFiller lf = new ListsFiller();
+        ListsFillerUseCase lf = new ListsFillerUseCase();
         adapter = new MyListViewAdapter(getActivity(), R.layout.custom_list_view, lf.generateList());
         binding.playingNextList.setAdapter(adapter);
 

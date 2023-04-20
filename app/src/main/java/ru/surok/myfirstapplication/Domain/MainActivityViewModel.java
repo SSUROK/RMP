@@ -10,17 +10,18 @@ import android.os.Build;
 import android.provider.Settings;
 
 import androidx.core.app.ActivityCompat;
+import androidx.lifecycle.ViewModel;
 
 import ru.surok.myfirstapplication.R;
 
-public class OnStartTasks {
+public class MainActivityViewModel extends ViewModel {
 
     private final int PERMISSION_REQUEST_CODE = 1111;
 
     private final Context context;
     private final Activity activity;
 
-    public OnStartTasks(Activity activity){
+    public MainActivityViewModel(Activity activity){
         this.context = activity.getApplicationContext();
         this.activity = activity;
     }

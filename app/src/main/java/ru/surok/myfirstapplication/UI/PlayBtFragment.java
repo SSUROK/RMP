@@ -14,8 +14,10 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
-import ru.surok.myfirstapplication.Domain.PlayMusicService;
+import ru.surok.myfirstapplication.Domain.PlayingTrackViewModel;
+import ru.surok.myfirstapplication.Domain.Services.PlayMusicService;
 import ru.surok.myfirstapplication.R;
 import ru.surok.myfirstapplication.databinding.FragmentPlayBtBinding;
 
@@ -23,6 +25,7 @@ public class PlayBtFragment extends Fragment {
 
     private FragmentPlayBtBinding binding;
     private Intent serviceIntent;
+    private PlayingTrackViewModel searchViewModel;
 
     public PlayBtFragment() {
         super(R.layout.fragment_play_bt);
@@ -31,6 +34,7 @@ public class PlayBtFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        searchViewModel = new ViewModelProvider(this).get(PlayingTrackViewModel.class);
     }
 
     @Nullable
@@ -45,11 +49,14 @@ public class PlayBtFragment extends Fragment {
             public void onClick(View view) {
                 serviceIntent = new Intent(getActivity(), PlayMusicService.class);
                 getActivity().startService(serviceIntent);
+                searchViewModel.setTrack("Hello");
             }
         });
 
         return binding.getRoot();
     }
+
+
 
     @Override
     public void onDestroy() {
@@ -57,21 +64,4 @@ public class PlayBtFragment extends Fragment {
         if (serviceIntent != null)
             getActivity().stopService(serviceIntent);
     }
-
-    private void showPlayingSongNotification(){
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity(),
-                getString(R.string.CHANNEL_ID))
-                .setSmallIcon(R.drawable.ic_launcher_foreground)
-                .setContentTitle(getString(R.string.next_track))
-                .setContentText(binding.playBtTextview.getText())
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-        NotificationManagerCompat notificationManager = NotificationManagerCompat
-                .from(getActivity());
-        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.POST_NOTIFICATIONS)
-        == PackageManager.PERMISSION_GRANTED) {
-            notificationManager.notify(1, builder.build());
-        }
-    }
-
-
 }
