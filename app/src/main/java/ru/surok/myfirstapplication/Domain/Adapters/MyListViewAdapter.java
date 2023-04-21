@@ -1,4 +1,4 @@
-package ru.surok.myfirstapplication;
+package ru.surok.myfirstapplication.Domain.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,12 +10,15 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class MyListViewAdapter extends ArrayAdapter<Item> {
+import ru.surok.myfirstapplication.Data.ListItem;
+import ru.surok.myfirstapplication.R;
+
+public class MyListViewAdapter extends ArrayAdapter<ListItem> {
     private LayoutInflater inflater;
     private int layout;
-    private List<Item> items;
+    private List<ListItem> items;
 
-    public MyListViewAdapter(Context context, int resource, List<Item> items) {
+    public MyListViewAdapter(Context context, int resource, List<ListItem> items) {
         super(context, resource, items);
         this.items = items;
         this.layout = resource;
@@ -23,7 +26,7 @@ public class MyListViewAdapter extends ArrayAdapter<Item> {
     }
     public View getView(int position, View convertView, ViewGroup parent) {
         View view=inflater.inflate(this.layout, parent, false);
-        Item item = getItem(position);
+        ListItem item = getItem(position);
 
         // then according to the position of the view assign the desired image for the same
         ImageView img = view.findViewById(R.id.listImageView);

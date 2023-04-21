@@ -1,4 +1,4 @@
-package ru.surok.myfirstapplication;
+package ru.surok.myfirstapplication.UI;
 
 import android.os.Bundle;
 
@@ -9,19 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import ru.surok.myfirstapplication.R;
 import ru.surok.myfirstapplication.databinding.FragmentMainPageBinding;
 
-public class MainPage extends Fragment {
 
-    public MainPage() {
+public class MainPageFragment extends Fragment {
+
+    public MainPageFragment() {
         // Required empty public constructor
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-        }
     }
 
     @Override

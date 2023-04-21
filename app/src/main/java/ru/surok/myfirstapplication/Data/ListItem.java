@@ -1,11 +1,11 @@
-package ru.surok.myfirstapplication;
+package ru.surok.myfirstapplication.Data;
 
-public class Item {
+public class ListItem {
 
     private int img;
     private String text;
 
-    public Item(int img, String text) {
+    public ListItem(int img, String text) {
         this.img = img;
         this.text = text;
     }

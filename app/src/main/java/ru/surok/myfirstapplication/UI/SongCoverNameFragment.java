@@ -1,4 +1,4 @@
-package ru.surok.myfirstapplication;
+package ru.surok.myfirstapplication.UI;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
+import androidx.lifecycle.ViewModelProvider;
 
+import ru.surok.myfirstapplication.Domain.PlayingTrackViewModel;
+import ru.surok.myfirstapplication.R;
 import ru.surok.myfirstapplication.databinding.FragmentSongCoverNameBinding;
 
 public class SongCoverNameFragment extends Fragment {
@@ -17,6 +20,7 @@ public class SongCoverNameFragment extends Fragment {
     private static int album_cover;
     private static String song_name;
     private FragmentSongCoverNameBinding binding;
+    private PlayingTrackViewModel model;
 
     public SongCoverNameFragment() {
         super(R.layout.fragment_song_cover_name);
@@ -25,19 +29,19 @@ public class SongCoverNameFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Bundle bundle = this.getArguments();
-        if (bundle != null) {
-            album_cover = bundle.getInt("album_cover");
-            song_name = bundle.getString("song_name");
-        }
+        model = new ViewModelProvider(getActivity())
+                .get(PlayingTrackViewModel.class);
     }
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         binding = FragmentSongCoverNameBinding.inflate(inflater, container, false);
-        binding.songName.setText(song_name);
-        binding.albumImage.setImageResource(album_cover);
+        model.getTrack().observe(getViewLifecycleOwner(), track ->{
+            binding.songName.setText(track.getName());
+            binding.albumImage.setImageResource(track.getImg());
+        });
         return binding.getRoot();
     }
 

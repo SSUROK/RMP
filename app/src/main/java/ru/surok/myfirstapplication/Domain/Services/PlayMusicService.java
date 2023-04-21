@@ -1,25 +1,22 @@
-package ru.surok.myfirstapplication;
+package ru.surok.myfirstapplication.Domain.Services;
 
 import android.Manifest;
-import android.app.Notification;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
-import android.media.session.MediaSession;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.provider.MediaStore;
 import android.support.v4.media.session.MediaSessionCompat;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
+
+import ru.surok.myfirstapplication.Domain.MediaBroadcastReceiver;
+import ru.surok.myfirstapplication.R;
 
 public class PlayMusicService extends Service implements MediaPlayer.OnPreparedListener {
 

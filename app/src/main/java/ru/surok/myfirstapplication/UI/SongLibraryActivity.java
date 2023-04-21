@@ -1,8 +1,10 @@
-package ru.surok.myfirstapplication;
+package ru.surok.myfirstapplication.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import ru.surok.myfirstapplication.R;
 
 public class SongLibraryActivity extends AppCompatActivity {
 

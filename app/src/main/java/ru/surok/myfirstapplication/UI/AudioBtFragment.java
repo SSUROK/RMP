@@ -1,4 +1,4 @@
-package ru.surok.myfirstapplication;
+package ru.surok.myfirstapplication.UI;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,19 +12,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentContainerView;
 import androidx.navigation.Navigation;
 
+import ru.surok.myfirstapplication.R;
 import ru.surok.myfirstapplication.databinding.FragmentAudioBtsBinding;
 
 public class AudioBtFragment extends Fragment {
 
     private FragmentAudioBtsBinding binding;
-
-    public AudioBtFragment() {
-        super(R.layout.fragment_audio_bts);
-    }
-
-    public void onClickForPlaying(View view){
-
-    }
 
     @Nullable
     @Override

@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/mainPage"
-        android:name="ru.surok.myfirstapplication.MainPage"
+        android:name="ru.surok.myfirstapplication.UI.MainPageFragment"
         android:label="fragment_main_page"
         tools:layout="@layout/fragment_main_page" >
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/playingSong"
-        android:name="ru.surok.myfirstapplication.PlayingSong"
+        android:name="ru.surok.myfirstapplication.UI.PlayingSongFragment"
         android:label="fragment_playing_song"
         tools:layout="@layout/fragment_playing_song" >
         <action
@@ -29,12 +29,12 @@
     </fragment>
     <activity
         android:id="@+id/songLibraryActivity"
-        android:name="ru.surok.myfirstapplication.SongLibraryActivity"
+        android:name="ru.surok.myfirstapplication.UI.SongLibraryActivity"
         android:label="activity_song_library"
         tools:layout="@layout/activity_song_library" />
     <fragment
         android:id="@+id/playingNextFragment"
-        android:name="ru.surok.myfirstapplication.PlayingNextFragment"
+        android:name="ru.surok.myfirstapplication.UI.PlayingNextFragment"
         android:label="fragment_playing_next"
         tools:layout="@layout/fragment_playing_next" />
 </navigation>

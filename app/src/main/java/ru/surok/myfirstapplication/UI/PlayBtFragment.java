@@ -1,4 +1,4 @@
-package ru.surok.myfirstapplication;
+package ru.surok.myfirstapplication.UI;
 
 import android.Manifest;
 import android.content.Intent;
@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,16 +14,18 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentResultListener;
+import androidx.lifecycle.ViewModelProvider;
 
-import java.util.Timer;
-
+import ru.surok.myfirstapplication.Domain.PlayingTrackViewModel;
+import ru.surok.myfirstapplication.Domain.Services.PlayMusicService;
+import ru.surok.myfirstapplication.R;
 import ru.surok.myfirstapplication.databinding.FragmentPlayBtBinding;
 
 public class PlayBtFragment extends Fragment {
 
     private FragmentPlayBtBinding binding;
     private Intent serviceIntent;
+    private PlayingTrackViewModel searchViewModel;
 
     public PlayBtFragment() {
         super(R.layout.fragment_play_bt);
@@ -34,6 +34,7 @@ public class PlayBtFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        searchViewModel = new ViewModelProvider(this).get(PlayingTrackViewModel.class);
     }
 
     @Nullable
@@ -46,14 +47,16 @@ public class PlayBtFragment extends Fragment {
         binding.btPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                showPlayingSongNotification();
                 serviceIntent = new Intent(getActivity(), PlayMusicService.class);
                 getActivity().startService(serviceIntent);
+                searchViewModel.setTrack("Hello");
             }
         });
 
         return binding.getRoot();
     }
+
+
 
     @Override
     public void onDestroy() {
@@ -61,21 +64,4 @@ public class PlayBtFragment extends Fragment {
         if (serviceIntent != null)
             getActivity().stopService(serviceIntent);
     }
-
-    private void showPlayingSongNotification(){
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity(),
-                getString(R.string.CHANNEL_ID))
-                .setSmallIcon(R.drawable.ic_launcher_foreground)
-                .setContentTitle(getString(R.string.next_track))
-                .setContentText(binding.playBtTextview.getText())
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-        NotificationManagerCompat notificationManager = NotificationManagerCompat
-                .from(getActivity());
-        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.POST_NOTIFICATIONS)
-        == PackageManager.PERMISSION_GRANTED) {
-            notificationManager.notify(1, builder.build());
-        }
-    }
-
-
 }

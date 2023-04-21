@@ -1,8 +1,7 @@
-package ru.surok.myfirstapplication;
+package ru.surok.myfirstapplication.Domain;
 
 import static android.content.Context.WINDOW_SERVICE;
 
-import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+
+import ru.surok.myfirstapplication.R;
+import ru.surok.myfirstapplication.UI.MainActivity;
 
 public class MediaBroadcastReceiver extends BroadcastReceiver {
 

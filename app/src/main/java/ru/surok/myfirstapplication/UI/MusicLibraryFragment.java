@@ -1,4 +1,4 @@
-package ru.surok.myfirstapplication;
+package ru.surok.myfirstapplication.UI;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,9 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import ru.surok.myfirstapplication.Domain.ListsFillerUseCase;
+import ru.surok.myfirstapplication.Domain.Adapters.MyRecyclerViewAdapter;
+import ru.surok.myfirstapplication.R;
 import ru.surok.myfirstapplication.databinding.FragmentMusicLibraryBinding;
 
 public class MusicLibraryFragment extends Fragment {
@@ -26,17 +26,10 @@ public class MusicLibraryFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         FragmentMusicLibraryBinding binding = FragmentMusicLibraryBinding.inflate(inflater, container, false);
-        adapter = new MyRecyclerViewAdapter(getActivity(), R.layout.custom_list_view,generateList());
+        ListsFillerUseCase lf = new ListsFillerUseCase();
+        adapter = new MyRecyclerViewAdapter(getActivity(), R.layout.custom_list_view, lf.generateList());
         binding.songLibraryList.setAdapter(adapter);
 
         return binding.getRoot();
-    }
-
-    private List<Item> generateList(){
-        List<Item> list = new ArrayList<>();
-        for (int i = 0; i < 200; i++){
-            list.add(new Item(R.drawable.deathconsciousness, "Sample text"));
-        }
-        return list;
     }
 }
