@@ -12,14 +12,15 @@ public class PlayingTrackViewModel extends ViewModel {
     private final TrackRepository trackRepository = TrackRepository.getInstance();
 
     private final MutableLiveData<SongModel> track =
-            new MutableLiveData<>(new SongModel(trackRepository.nextTrack()));
+            new MutableLiveData<>(new SongModel(trackRepository.getCurrent()));
 
     public LiveData<SongModel> getTrack(){
         return track;
     }
 
     public void nextTrack(){
-        track.setValue(new SongModel(trackRepository.nextTrack()));
+        trackRepository.nextTrack();
+        track.setValue(new SongModel(trackRepository.getCurrent()));
     }
 
     public void setTrack(String name){

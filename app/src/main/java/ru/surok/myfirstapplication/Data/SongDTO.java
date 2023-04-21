@@ -2,15 +2,15 @@ package ru.surok.myfirstapplication.Data;
 
 public class SongDTO {
 
-    private String name;
+    private final String name;
 
-    private String band;
+    private final String band;
 
-    private String description;
+    private final String description;
 
-    private int img;
+    private final int img;
 
-    private int time;
+    private final int time;
 
     public SongDTO(String name, String band, String description, int img, int time) {
         this.name = name;
