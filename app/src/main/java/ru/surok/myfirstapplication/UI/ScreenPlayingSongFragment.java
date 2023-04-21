@@ -3,24 +3,19 @@ package ru.surok.myfirstapplication.UI;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import ru.surok.myfirstapplication.Domain.PlayingTrackViewModel;
-import ru.surok.myfirstapplication.R;
-import ru.surok.myfirstapplication.UI.AudioBtFragment;
-import ru.surok.myfirstapplication.UI.SongCoverNameFragment;
-import ru.surok.myfirstapplication.databinding.FragmentPlayingSongBinding;
+import ru.surok.myfirstapplication.databinding.FragmentScreenPlayingSongBinding;
 
-public class PlayingSongFragment extends Fragment {
+public class ScreenPlayingSongFragment extends Fragment {
 
     private String songName;
     private int albumCover;
 
-    public PlayingSongFragment() {
+    public ScreenPlayingSongFragment() {
         // Required empty public constructor
     }
 
@@ -36,7 +31,7 @@ public class PlayingSongFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        FragmentPlayingSongBinding binding = FragmentPlayingSongBinding.inflate(inflater, container,
+        FragmentScreenPlayingSongBinding binding = FragmentScreenPlayingSongBinding.inflate(inflater, container,
                 false);
         return binding.getRoot();
     }

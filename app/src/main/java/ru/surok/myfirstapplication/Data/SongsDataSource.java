@@ -10,7 +10,7 @@ import ru.surok.myfirstapplication.R;
 
 public class SongsDataSource {
 
-    private final List<SongDTO> songs = new LinkedList<>();
+    private final LinkedList<SongDTO> songs = new LinkedList<>();
 
     public SongsDataSource() {
         for(int j = 65; j <= 70; j++) {

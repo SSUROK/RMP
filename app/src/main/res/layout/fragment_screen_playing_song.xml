@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.PlayingSongFragment">
+    tools:context=".UI.ScreenPlayingSongFragment">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/songCoverNameView"
@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="30dp"
         tools:layout="@layout/fragment_audio_bts" />
 
 </FrameLayout>

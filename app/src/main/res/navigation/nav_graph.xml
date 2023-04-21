@@ -20,9 +20,9 @@
     </fragment>
     <fragment
         android:id="@+id/playingSong"
-        android:name="ru.surok.myfirstapplication.UI.PlayingSongFragment"
+        android:name="ru.surok.myfirstapplication.UI.ScreenPlayingSongFragment"
         android:label="fragment_playing_song"
-        tools:layout="@layout/fragment_playing_song" >
+        tools:layout="@layout/fragment_screen_playing_song" >
         <action
             android:id="@+id/action_playingSong_to_playingNextFragment"
             app:destination="@id/playingNextFragment" />

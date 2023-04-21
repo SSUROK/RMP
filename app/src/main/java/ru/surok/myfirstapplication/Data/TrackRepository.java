@@ -3,15 +3,14 @@ package ru.surok.myfirstapplication.Data;
 import android.os.Build;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 
 public final class TrackRepository {
 
     private final SongsDataSource songsDataSource;
     private static TrackRepository INSTANCE;
-    private Iterator<SongDTO> iter;
+    private ListIterator<SongDTO> iter;
     private SongDTO current;
 
     public TrackRepository() {
@@ -36,6 +35,12 @@ public final class TrackRepository {
             iter = songsDataSource.getSongs().listIterator();
         }
         current = iter.next();
+    }
+
+    public void prevTrack(){
+        if (iter.hasPrevious()) {
+            current = iter.previous();
+        }
     }
 
     public List<ListItem> getNextSongs(){

@@ -23,6 +23,11 @@ public class PlayingTrackViewModel extends ViewModel {
         track.setValue(new SongModel(trackRepository.getCurrent()));
     }
 
+    public void prevTrack(){
+        trackRepository.prevTrack();
+        track.setValue(new SongModel(trackRepository.getCurrent()));
+    }
+
     public void setTrack(String name){
         track.setValue(
                 new SongModel(
