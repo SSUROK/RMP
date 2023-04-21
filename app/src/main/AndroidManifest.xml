@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -8,7 +10,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFirstApplication">
-        <activity android:name=".MainActivity"
+        <receiver android:name=".MediaBroadcastReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="APP_SPECIFIC_BROADCAST" />
+            </intent-filter>
+        </receiver>
+        <service android:name=".PlayMusicService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback" />
+        <service android:name=".GetBackService"
+            android:enabled="true"
+            android:exported="true" />
+        <activity
+            android:name=".PlayingNextActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SongLibraryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PlayingSongActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

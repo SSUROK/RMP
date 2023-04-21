@@ -1,85 +1,83 @@
 package ru.surok.myfirstapplication;
 
-import android.content.Context;
+import android.Manifest;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
+import android.provider.Settings;
+import android.view.View;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
+import ru.surok.myfirstapplication.databinding.ActivityMainContraintBinding;
 
 public class MainActivity extends AppCompatActivity {
-    private final int duration = Toast.LENGTH_SHORT;
-    private static final String TAG = "Toasted app";
+
+    private ActivityResultLauncher<Intent> startFotRes;
+//    private Intent serviceIntent;
+
+    private final int PERMISSION_REQUEST_CODE = 1111;
+    private ActivityMainContraintBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        CharSequence text = "onCreate toast";
-        Context context = getApplicationContext();
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-        Log.i(TAG, "creating instance");
+        binding = ActivityMainContraintBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        createNotificationChannel();
+        requestPermissions();
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        CharSequence text = "onStart toast";
-        Context context = getApplicationContext();
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-
-        Log.i(TAG, "starting instance");
+    public void onClickCurrentTrack(View view){
+        Intent intent = new Intent(this, PlayingSongActivity.class);
+        intent.putExtra("album_cover", R.drawable.deathconsciousness);
+        intent.putExtra("song_name", "Bloodhail");
+        startActivity(intent);
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
+    public void requestPermissions(){
+        ActivityCompat.requestPermissions(this, new String[] {
+                Manifest.permission.POST_NOTIFICATIONS
+        }, PERMISSION_REQUEST_CODE);
 
-        CharSequence text = "onStop toast";
-        Context context = getApplicationContext();
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-
-        Log.i(TAG, "stoping instance");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (!Settings.canDrawOverlays(this)) {
+                // send user to the device settings
+                Intent myIntent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+                startActivity(myIntent);
+            }
+        }
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        CharSequence text = "onDestroy toast";
-        Context context = getApplicationContext();
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-
-        Log.i(TAG, "destroying instance");
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = getString(R.string.CHANNEL_NAME);
+            String description = getString(R.string.CHANNEL_DESCRIPTION);
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(getString(R.string.CHANNEL_ID), name, importance);
+            channel.setDescription(description);
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-
-        CharSequence text = "onPause toast";
-        Context context = getApplicationContext();
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-
-        Log.i(TAG, "pausing instance");
+        Intent serviceIntent = new Intent(this, GetBackService.class);
+        startService(serviceIntent);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        CharSequence text = "onResume toast";
-        Context context = getApplicationContext();
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-
-        Log.i(TAG, "resuming instance");
-    }
+    //    @Override
+//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+//        if (requestCode == PERMISSION_REQUEST_CODE && grantResults.length == 1){
+//            if ()
+//        }
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//    }
 }
