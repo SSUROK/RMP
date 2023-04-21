@@ -39,10 +39,10 @@ public class BottomPlayerFragment extends Fragment {
             binding.songName.setText(track.getName());
             binding.songBand.setText(track.getBand());
         });
-        binding.btPlay.setOnClickListener(new View.OnClickListener() {
+        binding.btNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println(model.getTrack().getValue().getName());
+                model.nextTrack();
             }
         });
         return binding.getRoot();

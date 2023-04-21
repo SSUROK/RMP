@@ -1,16 +1,6 @@
 package ru.surok.myfirstapplication.Domain;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
-
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
-import androidx.core.content.ContextCompat;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-
-import ru.surok.myfirstapplication.Data.PlayingTrackRepository;
-import ru.surok.myfirstapplication.R;
 
 public class PlayBtViewModel extends ViewModel {
 

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,13 +15,14 @@ import android.widget.Toast;
 
 import ru.surok.myfirstapplication.Domain.ListsFillerUseCase;
 import ru.surok.myfirstapplication.Domain.Adapters.MyListViewAdapter;
+import ru.surok.myfirstapplication.Domain.PlayingNextViewModel;
 import ru.surok.myfirstapplication.R;
 import ru.surok.myfirstapplication.databinding.FragmentPlayingNextBinding;
 
 public class PlayingNextFragment extends Fragment {
     private final int duration = Toast.LENGTH_SHORT;
     private static final String TAG = "Music app top fragment";
-    private MyListViewAdapter adapter;
+
 
     public PlayingNextFragment() {
         super(R.layout.fragment_playing_next);
@@ -32,7 +34,10 @@ public class PlayingNextFragment extends Fragment {
         FragmentPlayingNextBinding binding = FragmentPlayingNextBinding.inflate(inflater,
                 container, false);
         ListsFillerUseCase lf = new ListsFillerUseCase();
-        adapter = new MyListViewAdapter(getActivity(), R.layout.custom_list_view, lf.generateList());
+        PlayingNextViewModel pnvm = new ViewModelProvider(this)
+                .get(PlayingNextViewModel.class);
+        MyListViewAdapter adapter =
+                new MyListViewAdapter(getActivity(), R.layout.custom_list_view, pnvm.getNextSongs());
         binding.playingNextList.setAdapter(adapter);
 
         binding.playingNextList.setOnItemClickListener(new AdapterView.OnItemClickListener() {

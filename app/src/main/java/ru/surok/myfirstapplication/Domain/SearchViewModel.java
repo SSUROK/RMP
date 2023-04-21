@@ -1,9 +1,6 @@
 package ru.surok.myfirstapplication.Domain;
 
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-
-import ru.surok.myfirstapplication.Data.PlayingTrackRepository;
 
 public class SearchViewModel extends ViewModel {
 

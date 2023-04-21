@@ -4,29 +4,30 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import ru.surok.myfirstapplication.Data.PlayingTrackRepository;
+import ru.surok.myfirstapplication.Data.SongModel;
+import ru.surok.myfirstapplication.Data.TrackRepository;
 
 public class PlayingTrackViewModel extends ViewModel {
 
-    private final MutableLiveData<PlayingTrackRepository> track =
-            new MutableLiveData<>(new PlayingTrackRepository());
+    private final TrackRepository trackRepository = TrackRepository.getInstance();
 
-    public LiveData<PlayingTrackRepository> getTrack(){
+    private final MutableLiveData<SongModel> track =
+            new MutableLiveData<>(new SongModel(trackRepository.nextTrack()));
+
+    public LiveData<SongModel> getTrack(){
         return track;
     }
 
     public void nextTrack(){
-
+        track.setValue(new SongModel(trackRepository.nextTrack()));
     }
 
     public void setTrack(String name){
         track.setValue(
-                new PlayingTrackRepository(
+                new SongModel(
                         name,
                         track.getValue().getBand(),
-                        track.getValue().getDescription(),
-                        track.getValue().getImg(),
-                        track.getValue().getTime()
+                        track.getValue().getImg()
                 ));
     }
 }

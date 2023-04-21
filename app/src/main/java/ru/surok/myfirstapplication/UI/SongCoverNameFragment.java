@@ -29,7 +29,7 @@ public class SongCoverNameFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        model = new ViewModelProvider(this)
+        model = new ViewModelProvider(getActivity())
                 .get(PlayingTrackViewModel.class);
     }
 
