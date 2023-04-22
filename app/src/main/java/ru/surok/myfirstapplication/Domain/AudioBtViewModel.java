@@ -2,9 +2,11 @@ package ru.surok.myfirstapplication.Domain;
 
 import android.Manifest;
 import android.app.Application;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.provider.DocumentsContract;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;

@@ -17,4 +17,8 @@
     <string name="CHANNEL_NAME">Music App</string>
     <string name="CHANNEL_DESCRIPTION">Notifications about next playing track</string>
     <string name="next_track">Next Track</string>
+    <string name="preference_file_key">preference_file_key_for_account</string>
+    <string name="theme_preference_key">theme_preference_for_acc</string>
+    <string name="switch2_key">switch_1_preference_for_acc</string>
+    <string name="switch3_key">switch_2_preference_for_acc</string>
 </resources>

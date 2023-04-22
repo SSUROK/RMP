@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_mainPage_to_songLibraryActivity"
             app:destination="@id/songLibraryActivity" />
+        <action
+            android:id="@+id/action_mainPage_to_accountPreferencesFragment"
+            app:destination="@id/accountPreferencesFragment" />
     </fragment>
     <fragment
         android:id="@+id/playingSong"
@@ -37,4 +40,9 @@
         android:name="ru.surok.myfirstapplication.UI.PlayingNextFragment"
         android:label="fragment_playing_next"
         tools:layout="@layout/fragment_playing_next" />
+    <fragment
+        android:id="@+id/accountPreferencesFragment"
+        android:name="ru.surok.myfirstapplication.UI.AccountPreferencesFragment"
+        android:label="fragment_account_preferences"
+        tools:layout="@layout/fragment_account_preferences" />
 </navigation>
