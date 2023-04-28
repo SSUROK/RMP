@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/mainPage"
-        android:name="ru.surok.myfirstapplication.UI.MainPageFragment"
+        android:name="ru.surok.myfirstapplication.UI.Views.Fragments.MainPageFragment"
         android:label="fragment_main_page"
         tools:layout="@layout/fragment_main_page" >
         <action
@@ -23,7 +23,7 @@
     </fragment>
     <fragment
         android:id="@+id/playingSong"
-        android:name="ru.surok.myfirstapplication.UI.ScreenPlayingSongFragment"
+        android:name="ru.surok.myfirstapplication.UI.Views.Fragments.PlayingSongFragment"
         android:label="fragment_playing_song"
         tools:layout="@layout/fragment_screen_playing_song" >
         <action
@@ -32,17 +32,17 @@
     </fragment>
     <activity
         android:id="@+id/songLibraryActivity"
-        android:name="ru.surok.myfirstapplication.UI.SongLibraryActivity"
+        android:name="ru.surok.myfirstapplication.UI.Views.Activities.SongLibraryActivity"
         android:label="activity_song_library"
         tools:layout="@layout/activity_song_library" />
     <fragment
         android:id="@+id/playingNextFragment"
-        android:name="ru.surok.myfirstapplication.UI.PlayingNextFragment"
+        android:name="ru.surok.myfirstapplication.UI.Views.Fragments.PlayingNextFragment"
         android:label="fragment_playing_next"
         tools:layout="@layout/fragment_playing_next" />
     <fragment
         android:id="@+id/accountPreferencesFragment"
-        android:name="ru.surok.myfirstapplication.UI.AccountPreferencesFragment"
+        android:name="ru.surok.myfirstapplication.UI.Views.Fragments.AccountPreferencesFragment"
         android:label="fragment_account_preferences"
         tools:layout="@layout/fragment_account_preferences" />
 </navigation>

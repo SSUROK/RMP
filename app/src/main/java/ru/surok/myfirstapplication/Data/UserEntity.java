@@ -8,14 +8,16 @@ import androidx.room.PrimaryKey;
 public class UserEntity {
 
     @PrimaryKey
-    private int uid;
+    public int uid;
 
     @ColumnInfo(name="first_name")
-    private String name;
+    public String name;
 
     @ColumnInfo(name="last_name")
-    private String lastname;
+    public String lastname;
 
     @ColumnInfo(name="login")
-    private String login;
+    public String login;
+
+
 }
