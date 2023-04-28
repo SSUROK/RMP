@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.PlayingSongFragment">
+    tools:context=".UI.Views.Fragments.PlayingSongFragment">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/songCoverNameView"
-        android:name="ru.surok.myfirstapplication.UI.SongCoverNameFragment"
+        android:name="ru.surok.myfirstapplication.UI.Views.Fragments.SongCoverNameFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -16,7 +16,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/trackPlaySkipBtView"
-        android:name="ru.surok.myfirstapplication.UI.AudioBtFragment"
+        android:name="ru.surok.myfirstapplication.UI.Views.Fragments.AudioBtFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"

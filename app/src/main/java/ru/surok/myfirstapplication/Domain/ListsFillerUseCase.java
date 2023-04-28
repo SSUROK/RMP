@@ -3,7 +3,7 @@ package ru.surok.myfirstapplication.Domain;
 import java.util.ArrayList;
 import java.util.List;
 
-import ru.surok.myfirstapplication.Data.ListItem;
+import ru.surok.myfirstapplication.Data.DataSources.ListItem;
 import ru.surok.myfirstapplication.R;
 
 public class ListsFillerUseCase {
