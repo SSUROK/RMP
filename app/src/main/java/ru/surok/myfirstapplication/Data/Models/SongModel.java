@@ -14,10 +14,10 @@ public class SongModel {
         this.img = img;
     }
 
-    public SongModel(SongDTO songDTO) {
-        this.name = songDTO.getName();
-        this.band = songDTO.getBand();
-        this.img = songDTO.getImg();
+    public SongModel(SongModel model) {
+        this.name = model.getName();
+        this.band = model.getBand();
+        this.img = model.getImg();
     }
 
     public String getName() {

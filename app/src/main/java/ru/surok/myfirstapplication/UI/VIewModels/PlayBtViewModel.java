@@ -1,4 +1,4 @@
-package ru.surok.myfirstapplication.UI.State_holders.VIewModels;
+package ru.surok.myfirstapplication.UI.VIewModels;
 
 import androidx.lifecycle.ViewModel;
 

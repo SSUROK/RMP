@@ -1,4 +1,4 @@
-package ru.surok.myfirstapplication.UI.UI_elements.Views.Fragments;
+package ru.surok.myfirstapplication.UI.Views.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import ru.surok.myfirstapplication.Domain.ListsFillerUseCase;
-import ru.surok.myfirstapplication.UI.State_holders.Adapters.MyRecyclerViewAdapter;
+import ru.surok.myfirstapplication.UI.Adapters.MyRecyclerViewAdapter;
 import ru.surok.myfirstapplication.R;
 import ru.surok.myfirstapplication.databinding.FragmentMusicLibraryBinding;
 

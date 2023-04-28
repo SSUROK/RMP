@@ -1,4 +1,4 @@
-package ru.surok.myfirstapplication.UI.UI_elements.Views.Fragments;
+package ru.surok.myfirstapplication.UI.Views.Fragments;
 
 import android.os.Bundle;
 

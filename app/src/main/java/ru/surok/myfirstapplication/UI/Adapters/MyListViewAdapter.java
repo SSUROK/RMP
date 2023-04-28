@@ -1,4 +1,4 @@
-package ru.surok.myfirstapplication.UI.State_holders.Adapters;
+package ru.surok.myfirstapplication.UI.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,9 +8,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ru.surok.myfirstapplication.Data.DataSources.ListItem;
+import ru.surok.myfirstapplication.Data.Models.SongModel;
 import ru.surok.myfirstapplication.R;
 
 public class MyListViewAdapter extends ArrayAdapter<ListItem> {
@@ -36,6 +38,12 @@ public class MyListViewAdapter extends ArrayAdapter<ListItem> {
         TextView textView = view.findViewById(R.id.listTextView);
         textView.setText(item.getText());
         return view;
+    }
+
+    public void updateData(List<ListItem> items){
+        this.items = items;
+
+        notifyDataSetChanged();
     }
 
 

@@ -1,4 +1,4 @@
-package ru.surok.myfirstapplication.UI.State_holders.VIewModels;
+package ru.surok.myfirstapplication.UI.Brodacast_receivers;
 
 import static android.content.Context.WINDOW_SERVICE;
 
@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 
 import ru.surok.myfirstapplication.R;
-import ru.surok.myfirstapplication.UI.UI_elements.Views.Activities.MainActivity;
+import ru.surok.myfirstapplication.UI.Views.Activities.MainActivity;
 
 public class MediaBroadcastReceiver extends BroadcastReceiver {
 

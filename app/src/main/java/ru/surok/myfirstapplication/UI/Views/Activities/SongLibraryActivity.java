@@ -1,4 +1,4 @@
-package ru.surok.myfirstapplication.UI.UI_elements.Views.Activities;
+package ru.surok.myfirstapplication.UI.Views.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 

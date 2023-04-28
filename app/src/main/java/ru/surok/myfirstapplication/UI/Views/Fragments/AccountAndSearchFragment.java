@@ -1,4 +1,4 @@
-package ru.surok.myfirstapplication.UI.UI_elements.Views.Fragments;
+package ru.surok.myfirstapplication.UI.Views.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,13 +10,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import ru.surok.myfirstapplication.UI.State_holders.VIewModels.PlayingTrackViewModel;
+import ru.surok.myfirstapplication.UI.VIewModels.BottomPlayerViewModel;
 import ru.surok.myfirstapplication.R;
 import ru.surok.myfirstapplication.databinding.FragmentAccountSearchBinding;
 
 public class AccountAndSearchFragment extends Fragment {
     private FragmentAccountSearchBinding binding;
-    private PlayingTrackViewModel searchViewModel;
+    private BottomPlayerViewModel searchViewModel;
 
     public AccountAndSearchFragment() {
         super(R.layout.fragment_account_search);
@@ -25,7 +25,7 @@ public class AccountAndSearchFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        searchViewModel = new ViewModelProvider(getActivity()).get(PlayingTrackViewModel.class);
+        searchViewModel = new ViewModelProvider(getActivity()).get(BottomPlayerViewModel.class);
         System.out.println(searchViewModel);
     }
 
@@ -33,12 +33,12 @@ public class AccountAndSearchFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentAccountSearchBinding.inflate(inflater, container, false);
-        binding.textEditFind.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                searchViewModel.setTrack(binding.textEditFind.getText().toString());
-            }
-        });
+//        binding.textEditFind.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                searchViewModel.setTrack(binding.textEditFind.getText().toString());
+//            }
+//        });
         return binding.getRoot();
     }
 }

@@ -1,10 +1,10 @@
-package ru.surok.myfirstapplication.UI.UI_elements.Views.Activities;
+package ru.surok.myfirstapplication.UI.Views.Activities;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import ru.surok.myfirstapplication.UI.State_holders.VIewModels.MainActivityViewModel;
+import ru.surok.myfirstapplication.UI.VIewModels.MainActivityViewModel;
 import ru.surok.myfirstapplication.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {

@@ -1,11 +1,9 @@
-package ru.surok.myfirstapplication.UI.UI_elements.Views.Fragments;
+package ru.surok.myfirstapplication.UI.Views.Fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

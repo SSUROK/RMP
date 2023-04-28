@@ -10,23 +10,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFirstApplication">
-        <receiver android:name=".UI.State_holders.VIewModels.MediaBroadcastReceiver" android:exported="false">
+        <receiver android:name=".UI.Brodacast_receivers.MediaBroadcastReceiver" android:exported="false">
             <intent-filter>
                 <action android:name="APP_SPECIFIC_BROADCAST" />
             </intent-filter>
         </receiver>
-        <service android:name=".UI.State_holders.Service.PlayMusicService"
+        <service android:name=".UI.Services.PlayMusicService"
             android:enabled="true"
             android:exported="false"
             android:foregroundServiceType="mediaPlayback" />
-        <service android:name=".UI.State_holders.Services.Services.GetBackService"
+        <service android:name=".UI.Services.GetBackService"
             android:enabled="true"
             android:exported="true" />
         <activity
-            android:name=".UI.UI_elements.Views.Activities.SongLibraryActivity"
+            android:name=".UI.Views.Activities.SongLibraryActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.UI_elements.Views.Activities.MainActivity"
+            android:name=".UI.Views.Activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

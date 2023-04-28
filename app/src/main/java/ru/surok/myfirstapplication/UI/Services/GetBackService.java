@@ -1,4 +1,4 @@
-package ru.surok.myfirstapplication.UI.State_holders.Service;
+package ru.surok.myfirstapplication.UI.Services;
 
 import android.app.Service;
 import android.content.Context;
@@ -16,7 +16,7 @@ import android.view.WindowManager;
 import androidx.annotation.Nullable;
 
 import ru.surok.myfirstapplication.R;
-import ru.surok.myfirstapplication.UI.UI_elements.Views.Activities.MainActivity;
+import ru.surok.myfirstapplication.UI.Views.Activities.MainActivity;
 
 public class GetBackService extends Service {
 

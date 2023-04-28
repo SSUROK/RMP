@@ -1,4 +1,4 @@
-package ru.surok.myfirstapplication.UI.State_holders.Service;
+package ru.surok.myfirstapplication.UI.Services;
 
 import android.Manifest;
 import android.app.PendingIntent;
@@ -15,7 +15,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 
-import ru.surok.myfirstapplication.UI.State_holders.VIewModels.MediaBroadcastReceiver;
+import ru.surok.myfirstapplication.UI.Brodacast_receivers.MediaBroadcastReceiver;
 import ru.surok.myfirstapplication.R;
 
 public class PlayMusicService extends Service implements MediaPlayer.OnPreparedListener {

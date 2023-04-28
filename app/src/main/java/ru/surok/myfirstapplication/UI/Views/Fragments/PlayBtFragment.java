@@ -1,4 +1,4 @@
-package ru.surok.myfirstapplication.UI.UI_elements.Views.Fragments;
+package ru.surok.myfirstapplication.UI.Views.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,8 +11,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import ru.surok.myfirstapplication.UI.State_holders.VIewModels.PlayingTrackViewModel;
-import ru.surok.myfirstapplication.UI.State_holders.Service.PlayMusicService;
+import ru.surok.myfirstapplication.UI.VIewModels.BottomPlayerViewModel;
+import ru.surok.myfirstapplication.UI.Services.PlayMusicService;
 import ru.surok.myfirstapplication.R;
 import ru.surok.myfirstapplication.databinding.FragmentPlayBtBinding;
 
@@ -20,7 +20,7 @@ public class PlayBtFragment extends Fragment {
 
     private FragmentPlayBtBinding binding;
     private Intent serviceIntent;
-    private PlayingTrackViewModel searchViewModel;
+    private BottomPlayerViewModel searchViewModel;
 
     public PlayBtFragment() {
         super(R.layout.fragment_play_bt);
@@ -29,7 +29,7 @@ public class PlayBtFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        searchViewModel = new ViewModelProvider(this).get(PlayingTrackViewModel.class);
+        searchViewModel = new ViewModelProvider(this).get(BottomPlayerViewModel.class);
     }
 
     @Nullable
@@ -44,7 +44,6 @@ public class PlayBtFragment extends Fragment {
             public void onClick(View view) {
                 serviceIntent = new Intent(getActivity(), PlayMusicService.class);
                 getActivity().startService(serviceIntent);
-                searchViewModel.setTrack("Hello");
             }
         });
 

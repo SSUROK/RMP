@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.UI_elements.Views.Fragments.MainPageFragment">
+    tools:context=".UI.Views.Fragments.MainPageFragment">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/accountSearchView"
-        android:name="ru.surok.myfirstapplication.UI.UI_elements.Views.Fragments.AccountAndSearchFragment"
+        android:name="ru.surok.myfirstapplication.UI.Views.Fragments.AccountAndSearchFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top|center"
@@ -21,7 +21,7 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/musicLibraryView"
-            android:name="ru.surok.myfirstapplication.UI.UI_elements.Views.Fragments.WaveSettingsMusicLibraryFragment"
+            android:name="ru.surok.myfirstapplication.UI.Views.Fragments.WaveSettingsMusicLibraryFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
@@ -30,7 +30,7 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/playingTrackView"
-            android:name="ru.surok.myfirstapplication.UI.UI_elements.Views.Fragments.BottomPlayerFragment"
+            android:name="ru.surok.myfirstapplication.UI.Views.Fragments.BottomPlayerFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
@@ -40,7 +40,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/bigBtView"
-        android:name="ru.surok.myfirstapplication.UI.UI_elements.Views.Fragments.PlayBtFragment"
+        android:name="ru.surok.myfirstapplication.UI.Views.Fragments.PlayBtFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
