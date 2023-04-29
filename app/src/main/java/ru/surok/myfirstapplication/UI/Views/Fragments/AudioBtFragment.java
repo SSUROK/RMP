@@ -33,47 +33,27 @@ public class AudioBtFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_playingSong_to_playingNextFragment);
             }
         });
-        AudioBtViewModel trackModel = new ViewModelProvider(this)
-                .get(AudioBtViewModel.class);
         binding.btNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                trackModel.nextTrack();
+                model.nextTrack();
             }
         });
         binding.btPrev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                trackModel.prevTrack();
+                model.prevTrack();
             }
         });
         binding.btLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 //                model.likeTrack();
-                createFile();
+//                createFile();
             }
-        });
-        binding.btNext.setOnClickListener(v->{
-            model.nextTrack();
-        });
-
-        binding.btPrev.setOnClickListener(v->{
-            model.prevTrack();
         });
         return binding.getRoot();
     }
 
-    private void createFile() {
-        Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TITLE, "invoice.txt");
 
-        // Optionally, specify a URI for the directory that should be opened in
-        // the system file picker when your app creates the document.
-//        intent.putExtra(DocumentsContract.EXTRA_INITIAL_URI, pickerInitialUri);
-
-        startActivity(intent);
-    }
 }

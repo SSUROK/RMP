@@ -10,7 +10,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 
-import ru.surok.myfirstapplication.Data.DTO.SongDTO;
 import ru.surok.myfirstapplication.Data.Models.SongModel;
 import ru.surok.myfirstapplication.R;
 

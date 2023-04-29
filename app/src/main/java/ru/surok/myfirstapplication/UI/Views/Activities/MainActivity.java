@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         model = new ViewModelProvider(this).get(MainActivityViewModel.class);
         requestPermissions();
         model.createNotificationChannel();
+
+
     }
 
     @Override

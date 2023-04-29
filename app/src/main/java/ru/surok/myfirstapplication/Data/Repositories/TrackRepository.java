@@ -12,24 +12,15 @@ import java.util.ListIterator;
 import java.util.Objects;
 
 import ru.surok.myfirstapplication.Data.DataSources.ListItem;
-import ru.surok.myfirstapplication.Data.DTO.SongDTO;
 import ru.surok.myfirstapplication.Data.DataSources.SongsDataSource;
 import ru.surok.myfirstapplication.Data.Models.SongModel;
 
-public final class TrackRepository {
+public class TrackRepository {
 
     private final SongsDataSource songsDataSource;
-    private static TrackRepository INSTANCE;
 
     public TrackRepository() {
         songsDataSource = new SongsDataSource();
-    }
-
-    public static TrackRepository getInstance(){
-        if (INSTANCE == null){
-            INSTANCE = new TrackRepository();
-        }
-        return INSTANCE;
     }
 
     public void nextTrack(){

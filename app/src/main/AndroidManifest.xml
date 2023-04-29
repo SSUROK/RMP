@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFirstApplication">
-        <receiver android:name=".UI.Brodacast_receivers.MediaBroadcastReceiver" android:exported="false">
+        <receiver android:name=".UI.BroadcastReceivers.MediaBroadcastReceiver" android:exported="false">
             <intent-filter>
                 <action android:name="APP_SPECIFIC_BROADCAST" />
             </intent-filter>

@@ -11,13 +11,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import ru.surok.myfirstapplication.UI.VIewModels.AccountPreferencesViewModel;
+import ru.surok.myfirstapplication.UI.VIewModels.AccountViewModel;
 import ru.surok.myfirstapplication.R;
 import ru.surok.myfirstapplication.databinding.FragmentAccountPreferencesBinding;
 
 public class AccountPreferencesFragment extends Fragment {
 
-    private AccountPreferencesViewModel model;
+    private AccountViewModel model;
 
     public AccountPreferencesFragment() {
         super(R.layout.fragment_account_preferences);
@@ -29,7 +29,7 @@ public class AccountPreferencesFragment extends Fragment {
         FragmentAccountPreferencesBinding binding = FragmentAccountPreferencesBinding
                 .inflate(inflater, container, false);
 
-        model = new ViewModelProvider(this).get(AccountPreferencesViewModel.class);
+        model = new ViewModelProvider(this).get(AccountViewModel.class);
 
         binding.switchTheme.setChecked(model.getPref(R.string.theme_preference_key));
         binding.switch2.setChecked(model.getPref(R.string.switch2_key));
@@ -38,21 +38,21 @@ public class AccountPreferencesFragment extends Fragment {
         binding.switchTheme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                model.SavePref(R.string.theme_preference_key, b);
+                model.savePref(R.string.theme_preference_key, b);
             }
         });
 
         binding.switch2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                model.SavePref(R.string.switch2_key, b);
+                model.savePref(R.string.switch2_key, b);
             }
         });
 
         binding.switch3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                model.SavePref(R.string.switch3_key, b);
+                model.savePref(R.string.switch3_key, b);
             }
         });
         return binding.getRoot();

@@ -16,7 +16,7 @@ public class SongCoverNameViewModel extends ViewModel {
     private final MutableLiveData<SongModel> current;
 
     public SongCoverNameViewModel() {
-        trackRepository = TrackRepository.getInstance();
+        trackRepository = new TrackRepository();
         current = trackRepository.getCurrent();
     }
 

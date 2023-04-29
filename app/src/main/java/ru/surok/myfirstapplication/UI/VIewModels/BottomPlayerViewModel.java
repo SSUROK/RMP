@@ -17,7 +17,7 @@ public class BottomPlayerViewModel extends ViewModel {
 
 
     public BottomPlayerViewModel() {
-        trackRepository = TrackRepository.getInstance();
+        trackRepository = new TrackRepository();
         song = trackRepository.getCurrent();
     }
 
