@@ -1,4 +1,4 @@
-package ru.surok.myfirstapplication.Data;
+package ru.surok.myfirstapplication.Data.DataSources.room.dao;
 
 import androidx.room.Dao;
 import androidx.room.Delete;

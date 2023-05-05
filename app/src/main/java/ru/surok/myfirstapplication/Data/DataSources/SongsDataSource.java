@@ -50,7 +50,7 @@ public class SongsDataSource {
             current.setValue(songsIter.previous());
     }
 
-    public MutableLiveData<LinkedList<SongModel>> getSongs() {
+    public MutableLiveData<List<SongModel>> getSongs() {
         return new MutableLiveData<>(songs);
     }
 }

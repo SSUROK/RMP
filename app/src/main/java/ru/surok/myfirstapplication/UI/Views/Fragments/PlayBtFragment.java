@@ -14,13 +14,15 @@ import androidx.lifecycle.ViewModelProvider;
 import ru.surok.myfirstapplication.UI.VIewModels.BottomPlayerViewModel;
 import ru.surok.myfirstapplication.UI.Services.PlayMusicService;
 import ru.surok.myfirstapplication.R;
+import ru.surok.myfirstapplication.UI.VIewModels.PlayBtViewModel;
 import ru.surok.myfirstapplication.databinding.FragmentPlayBtBinding;
 
 public class PlayBtFragment extends Fragment {
 
     private FragmentPlayBtBinding binding;
     private Intent serviceIntent;
-    private BottomPlayerViewModel searchViewModel;
+
+    private PlayBtViewModel model;
 
     public PlayBtFragment() {
         super(R.layout.fragment_play_bt);
@@ -29,7 +31,7 @@ public class PlayBtFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        searchViewModel = new ViewModelProvider(this).get(BottomPlayerViewModel.class);
+        model = new ViewModelProvider(this).get(PlayBtViewModel.class);
     }
 
     @Nullable
@@ -38,12 +40,15 @@ public class PlayBtFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         binding = FragmentPlayBtBinding.inflate(inflater, container,
                 false);
-
+        model.getSong().observe(getViewLifecycleOwner(), s->{
+            binding.playBtTextview.setText(s.getName());
+        });
         binding.btPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                serviceIntent = new Intent(getActivity(), PlayMusicService.class);
-                getActivity().startService(serviceIntent);
+                model.play();
+//                serviceIntent = new Intent(getActivity(), PlayMusicService.class);
+//                getActivity().startService(serviceIntent);
             }
         });
 

@@ -15,11 +15,11 @@
             android:id="@+id/action_mainPage_to_playingSong"
             app:destination="@id/playingSong" />
         <action
-            android:id="@+id/action_mainPage_to_songLibraryActivity"
-            app:destination="@id/songLibraryActivity" />
-        <action
             android:id="@+id/action_mainPage_to_accountPreferencesFragment"
             app:destination="@id/accountPreferencesFragment" />
+        <action
+            android:id="@+id/action_mainPage_to_musicLibraryList"
+            app:destination="@id/musicLibraryList" />
     </fragment>
     <fragment
         android:id="@+id/playingSong"
@@ -30,11 +30,6 @@
             android:id="@+id/action_playingSong_to_playingNextFragment"
             app:destination="@id/playingNextFragment" />
     </fragment>
-    <activity
-        android:id="@+id/songLibraryActivity"
-        android:name="ru.surok.myfirstapplication.UI.Views.Activities.SongLibraryActivity"
-        android:label="activity_song_library"
-        tools:layout="@layout/activity_song_library" />
     <fragment
         android:id="@+id/playingNextFragment"
         android:name="ru.surok.myfirstapplication.UI.Views.Fragments.PlayingNextFragment"
@@ -45,4 +40,9 @@
         android:name="ru.surok.myfirstapplication.UI.Views.Fragments.AccountPreferencesFragment"
         android:label="fragment_account_preferences"
         tools:layout="@layout/fragment_account_preferences" />
+    <fragment
+        android:id="@+id/musicLibraryList"
+        android:name="ru.surok.myfirstapplication.UI.Views.Fragments.MusicLibraryFragment"
+        android:label="fragment_music_library"
+        tools:layout="@layout/fragment_music_library" />
 </navigation>

@@ -31,28 +31,28 @@ public class AccountPreferencesFragment extends Fragment {
 
         model = new ViewModelProvider(this).get(AccountViewModel.class);
 
-        binding.switchTheme.setChecked(model.getPref(R.string.theme_preference_key));
-        binding.switch2.setChecked(model.getPref(R.string.switch2_key));
-        binding.switch3.setChecked(model.getPref(R.string.switch3_key));
+        binding.switchTheme.setChecked(model.getPref(getString(R.string.theme_preference_key)));
+        binding.switch2.setChecked(model.getPref(getString(R.string.switch2_key)));
+        binding.switch3.setChecked(model.getPref(getString(R.string.switch3_key)));
 
         binding.switchTheme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                model.savePref(R.string.theme_preference_key, b);
+                model.savePref(getString(R.string.theme_preference_key), b);
             }
         });
 
         binding.switch2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                model.savePref(R.string.switch2_key, b);
+                model.savePref(getString(R.string.switch2_key), b);
             }
         });
 
         binding.switch3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                model.savePref(R.string.switch3_key, b);
+                model.savePref(getString(R.string.switch3_key), b);
             }
         });
         return binding.getRoot();

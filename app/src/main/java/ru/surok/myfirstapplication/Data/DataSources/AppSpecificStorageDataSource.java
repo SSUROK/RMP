@@ -11,14 +11,14 @@ import java.io.IOException;
 import ru.surok.myfirstapplication.Data.Models.SongModel;
 
 public class AppSpecificStorageDataSource {
-    private final Context context;
+
+    private final File app_specific_storage;
 
     public AppSpecificStorageDataSource(Context context) {
-        this.context = context;
+        app_specific_storage = context.getApplicationContext().getFilesDir();
     }
 
     public void likeTrack(SongModel song){
-        File app_specific_storage = context.getApplicationContext().getFilesDir();
         if(app_specific_storage.canWrite()){
             File licked_song = new File(app_specific_storage, "licked_song.txt");
             try (FileWriter fileWriter = new FileWriter(licked_song)){

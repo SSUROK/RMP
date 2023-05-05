@@ -1,4 +1,4 @@
-package ru.surok.myfirstapplication.Data;
+package ru.surok.myfirstapplication.Data.DataSources.room.Entity;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;

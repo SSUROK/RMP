@@ -19,11 +19,11 @@ public class AccountViewModel extends AndroidViewModel {
         storageRepository = new ExternalInternalStorageRepository(application);
     }
 
-    public void savePref(int key, boolean value){
+    public void savePref(String key, boolean value){
         storageRepository.savePref(key, value);
     }
 
-    public boolean getPref(int key){
+    public boolean getPref(String key){
         return storageRepository.getPref(key);
     }
 }

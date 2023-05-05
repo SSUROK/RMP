@@ -30,6 +30,7 @@ android {
         viewBinding true
     }
     namespace 'ru.surok.myfirstapplication'
+    buildToolsVersion '33'
 }
 
 dependencies {

@@ -28,8 +28,6 @@ import ru.surok.myfirstapplication.R;
 import ru.surok.myfirstapplication.databinding.FragmentPlayingNextBinding;
 
 public class PlayingNextFragment extends Fragment {
-    private final int duration = Toast.LENGTH_SHORT;
-    private static final String TAG = "Music app top fragment";
 
     private FragmentPlayingNextBinding binding;
     private PlayingNextViewModel model;
@@ -56,7 +54,7 @@ public class PlayingNextFragment extends Fragment {
 
         model.getCurrent().observe(getViewLifecycleOwner(), song->{
             int index = model.getSongs().getValue().indexOf(song) +1;
-            List<ListItem> temp = ListSongModelToListListItem.change(
+            List<ListItem> temp = ListSongModelToListListItem.changeToIter(
             model.getSongs().getValue().listIterator(index));
             ((MyRecyclerViewAdapter) binding.playingNextList.getAdapter()).updateData(temp);
         });

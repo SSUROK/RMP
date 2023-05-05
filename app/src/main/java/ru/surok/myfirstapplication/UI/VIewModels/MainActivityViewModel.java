@@ -15,16 +15,24 @@ import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.ViewModel;
 
+import ru.surok.myfirstapplication.Data.DataSources.room.Entity.SongEntity;
+import ru.surok.myfirstapplication.Data.Models.SongModel;
+import ru.surok.myfirstapplication.Data.Repositories.TrackRepository;
 import ru.surok.myfirstapplication.R;
 
 public class MainActivityViewModel extends AndroidViewModel {
 
+    private final TrackRepository trackRepository;
+
     public MainActivityViewModel(@NonNull Application application) {
         super(application);
+        trackRepository = TrackRepository.getInstance(application);
+        trackRepository.addSong(new SongModel(null, null, 0));
     }
 
-//    private final Context context;
-//    private final Activity activity;
+    public void dropDB(){
+        trackRepository.deleteAll();
+    }
 
     public void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

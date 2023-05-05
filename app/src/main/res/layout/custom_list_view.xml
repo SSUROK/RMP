@@ -20,13 +20,24 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/listTextView"
+            android:id="@+id/songNameView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="bottom|left"
             android:textColor="@android:color/black"
             android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded" />
+
+        <TextView
+            android:id="@+id/songBandView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="bottom|left"
+            android:textColor="@android:color/black"
+            android:textSize="13sp"
             android:textStyle="bold"
             tools:ignore="RtlHardcoded" />
 

@@ -16,7 +16,7 @@ public class ExternalInternalStorageRepository{
 
     public ExternalInternalStorageRepository(Context context) {
         appSpecificStorageDataSource = new AppSpecificStorageDataSource(context);
-        externalStorageDataSource = new ExternalStorageDataSource(context);
+        externalStorageDataSource = new ExternalStorageDataSource();
         preferencesDataSource = new SharedPreferencesDataSource(context);
     }
 
@@ -24,15 +24,15 @@ public class ExternalInternalStorageRepository{
         appSpecificStorageDataSource.likeTrack(song);
     }
 
-    public void createFile(){
-        externalStorageDataSource.createFile();
+    public void createFile(Context context){
+        externalStorageDataSource.createFile(context);
     }
 
-    public void savePref(int key, boolean value){
+    public void savePref(String key, boolean value){
         preferencesDataSource.SavePref(key, value);
     }
 
-    public boolean getPref(int key){
+    public boolean getPref(String key){
         return preferencesDataSource.getPref(key);
     }
 }

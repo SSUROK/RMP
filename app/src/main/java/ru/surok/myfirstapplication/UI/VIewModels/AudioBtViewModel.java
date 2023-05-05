@@ -25,11 +25,12 @@ import ru.surok.myfirstapplication.Data.Repositories.TrackRepository;
 import ru.surok.myfirstapplication.R;
 
 public class AudioBtViewModel extends AndroidViewModel {
-    private final TrackRepository trackRepository = new TrackRepository();
+    private final TrackRepository trackRepository;
     private final ExternalInternalStorageRepository storageRepository;
 
     public AudioBtViewModel(@NonNull Application application) {
         super(application);
+        trackRepository = TrackRepository.getInstance(getApplication());
         this.storageRepository = new ExternalInternalStorageRepository(application.getApplicationContext());
     }
 
@@ -46,6 +47,7 @@ public class AudioBtViewModel extends AndroidViewModel {
         if (song != null){
             storageRepository.likeTrack(song);
         }
+        storageRepository.createFile(getApplication());
     }
 
 
