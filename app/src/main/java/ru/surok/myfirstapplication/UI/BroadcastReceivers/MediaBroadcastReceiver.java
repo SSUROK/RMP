@@ -1,4 +1,4 @@
-package ru.surok.myfirstapplication.UI.Brodacast_receivers;
+package ru.surok.myfirstapplication.UI.BroadcastReceivers;
 
 import static android.content.Context.WINDOW_SERVICE;
 

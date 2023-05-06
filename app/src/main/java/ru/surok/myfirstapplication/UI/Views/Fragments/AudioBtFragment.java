@@ -1,6 +1,9 @@
 package ru.surok.myfirstapplication.UI.Views.Fragments;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.DocumentsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,13 +33,27 @@ public class AudioBtFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_playingSong_to_playingNextFragment);
             }
         });
-        binding.btNext.setOnClickListener(v->{
-            model.nextTrack();
+        binding.btNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                model.nextTrack();
+            }
         });
-
-        binding.btPrev.setOnClickListener(v->{
-            model.prevTrack();
+        binding.btPrev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                model.prevTrack();
+            }
+        });
+        binding.btLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                model.likeTrack();
+//                createFile();
+            }
         });
         return binding.getRoot();
     }
+
+
 }

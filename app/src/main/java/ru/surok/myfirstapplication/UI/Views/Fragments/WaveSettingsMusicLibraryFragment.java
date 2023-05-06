@@ -31,7 +31,7 @@ public class WaveSettingsMusicLibraryFragment extends Fragment {
             @Override
             public void onClick(View view1) {
                 Navigation.findNavController(view1)
-                        .navigate(R.id.action_mainPage_to_songLibraryActivity);
+                        .navigate(R.id.action_mainPage_to_musicLibraryList);
             }
         });
 

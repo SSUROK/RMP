@@ -7,11 +7,11 @@
     tools:context=".UI.Views.Activities.SongLibraryActivity">
 
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView"
-        android:name="ru.surok.myfirstapplication.UI.Views.Fragments.MusicLibraryFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout="@layout/fragment_music_library"
-        android:background="@color/light_gray"/>
+<!--    <androidx.fragment.app.FragmentContainerView-->
+<!--        android:id="@+id/fragmentContainerView"-->
+<!--        android:name="ru.surok.myfirstapplication.UI.Views.Fragments.MusicLibraryFragment"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        tools:layout="@layout/fragment_music_library"-->
+<!--        android:background="@color/light_gray"/>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

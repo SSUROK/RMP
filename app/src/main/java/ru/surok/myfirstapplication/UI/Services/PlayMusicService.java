@@ -15,7 +15,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 
-import ru.surok.myfirstapplication.UI.Brodacast_receivers.MediaBroadcastReceiver;
+import ru.surok.myfirstapplication.UI.BroadcastReceivers.MediaBroadcastReceiver;
 import ru.surok.myfirstapplication.R;
 
 public class PlayMusicService extends Service implements MediaPlayer.OnPreparedListener {

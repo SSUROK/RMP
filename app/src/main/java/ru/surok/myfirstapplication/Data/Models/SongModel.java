@@ -1,7 +1,5 @@
 package ru.surok.myfirstapplication.Data.Models;
 
-import ru.surok.myfirstapplication.Data.DTO.SongDTO;
-
 public class SongModel {
 
     private final String name;

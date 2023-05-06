@@ -3,6 +3,8 @@
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFirstApplication">
-        <receiver android:name=".UI.Brodacast_receivers.MediaBroadcastReceiver" android:exported="false">
+        <receiver android:name=".UI.BroadcastReceivers.MediaBroadcastReceiver" android:exported="false">
             <intent-filter>
                 <action android:name="APP_SPECIFIC_BROADCAST" />
             </intent-filter>
@@ -27,6 +29,7 @@
             android:exported="false" />
         <activity
             android:name=".UI.Views.Activities.MainActivity"
+            android:launchMode="singleTop"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

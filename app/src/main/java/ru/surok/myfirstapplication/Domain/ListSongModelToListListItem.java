@@ -10,16 +10,19 @@ import ru.surok.myfirstapplication.Data.DataSources.ListItem;
 import ru.surok.myfirstapplication.Data.Models.SongModel;
 
 public class ListSongModelToListListItem {
-    public static List<ListItem> change(ListIterator<SongModel>items){
+    public static List<ListItem> changeToIter(ListIterator<SongModel>items){
         List<ListItem> li = new ArrayList<>();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            items.forEachRemaining(e->li.add(new ListItem(e.getImg(), e.getName())));
+            items.forEachRemaining(e->li.add(new ListItem(e.getName(), e.getBand(), e.getImg())));
         }
-//        List<ListItem> li = new ArrayList<>();
-//        while(items.hasNext()){
-//            SongModel temp = items.next();
-//            li.add(new ListItem(temp.getImg(), temp.getName()));
-//        }
+        return li;
+    }
+
+    public static List<ListItem> changeToList(List<SongModel> items){
+        List<ListItem> li = new ArrayList<>();
+        for (SongModel sm : items){
+            li.add(new ListItem(sm.getName(), sm.getBand(), sm.getImg()));
+        }
         return li;
     }
 }

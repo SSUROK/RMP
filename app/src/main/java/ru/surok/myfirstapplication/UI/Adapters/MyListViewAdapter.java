@@ -35,8 +35,8 @@ public class MyListViewAdapter extends ArrayAdapter<ListItem> {
         img.setImageResource(item.getImg());
 
         // then according to the position of the view assign the desired TextView 1 for the same
-        TextView textView = view.findViewById(R.id.listTextView);
-        textView.setText(item.getText());
+        TextView textView = view.findViewById(R.id.songNameView);
+        textView.setText(item.getName());
         return view;
     }
 

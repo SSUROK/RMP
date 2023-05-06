@@ -3,11 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context="ru.surok.myfirstapplication.UI.Views.Fragments.MusicLibraryFragment"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.recyclerview.widget.RecyclerView
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        android:id="@+id/songLibraryList"
+        android:id="@+id/musicLibraryList"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </FrameLayout>
