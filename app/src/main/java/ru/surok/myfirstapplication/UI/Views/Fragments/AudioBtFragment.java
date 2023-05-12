@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
+import ru.surok.myfirstapplication.Data.Models.SongModel;
 import ru.surok.myfirstapplication.R;
 import ru.surok.myfirstapplication.UI.VIewModels.AudioBtViewModel;
 import ru.surok.myfirstapplication.databinding.FragmentAudioBtsBinding;
@@ -50,6 +51,23 @@ public class AudioBtFragment extends Fragment {
             public void onClick(View view) {
 //                model.likeTrack();
 //                createFile();
+            }
+        });
+
+        binding.btShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SongModel song = model.getSong().getValue();
+                if (song != null) {
+                    Intent sendIntent = new Intent();
+                    sendIntent.setAction(Intent.ACTION_SEND);
+                    sendIntent.putExtra(Intent.EXTRA_TEXT, String.format(
+                            "Check out this cool song %s by %s", song.getName(), song.getBand()));
+                    sendIntent.setType("text/plain");
+
+                    Intent shareIntent = Intent.createChooser(sendIntent, null);
+                    startActivity(shareIntent);
+                }
             }
         });
         return binding.getRoot();

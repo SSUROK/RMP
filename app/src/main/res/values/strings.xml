@@ -21,4 +21,5 @@
     <string name="theme_preference_key">theme_preference_for_acc</string>
     <string name="switch2_key">switch_1_preference_for_acc</string>
     <string name="switch3_key">switch_2_preference_for_acc</string>
+    <string name="shared_song_message">Song we found depending on shared:</string>
 </resources>

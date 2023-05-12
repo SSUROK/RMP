@@ -12,6 +12,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -32,6 +33,7 @@ public class AudioBtViewModel extends AndroidViewModel {
         super(application);
         trackRepository = TrackRepository.getInstance(getApplication());
         this.storageRepository = new ExternalInternalStorageRepository(application.getApplicationContext());
+
     }
 
     public void nextTrack(){
@@ -40,6 +42,10 @@ public class AudioBtViewModel extends AndroidViewModel {
 
     public void prevTrack(){
         trackRepository.prevTrack();
+    }
+
+    public LiveData<SongModel> getSong(){
+        return trackRepository.getCurrent();
     }
 
     public void likeTrack(){

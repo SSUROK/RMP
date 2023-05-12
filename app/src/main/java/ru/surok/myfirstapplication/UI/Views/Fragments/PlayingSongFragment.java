@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import ru.surok.myfirstapplication.R;
 import ru.surok.myfirstapplication.databinding.FragmentPlayingSongBinding;
 
 
@@ -17,7 +18,7 @@ public class PlayingSongFragment extends Fragment {
     private int albumCover;
 
     public PlayingSongFragment() {
-        // Required empty public constructor
+        super(R.layout.fragment_playing_song);
     }
 
     @Override
