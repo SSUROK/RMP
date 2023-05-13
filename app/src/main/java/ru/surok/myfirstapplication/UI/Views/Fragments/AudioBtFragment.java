@@ -58,6 +58,12 @@ public class AudioBtFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 SongModel song = model.getSong().getValue();
+//                if (song != null){
+//                    Uri songUri = Uri.parse(String.format("spotify:search:name=%s,band=%s", song.getName(), song.getBand()));
+//                    Intent sendIntent = new Intent(Intent.ACTION_VIEW, songUri);
+//                    Intent shareIntent = Intent.createChooser(sendIntent, null);
+//                    startActivity(shareIntent);
+//                }
                 if (song != null) {
                     Intent sendIntent = new Intent();
                     sendIntent.setAction(Intent.ACTION_SEND);

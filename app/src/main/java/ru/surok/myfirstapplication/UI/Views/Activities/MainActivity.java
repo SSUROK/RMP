@@ -6,11 +6,19 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.ViewModelProvider;
 
+import ru.surok.myfirstapplication.R;
 import ru.surok.myfirstapplication.UI.VIewModels.MainActivityViewModel;
 import ru.surok.myfirstapplication.databinding.ActivityMainBinding;
 
@@ -29,12 +37,6 @@ public class MainActivity extends AppCompatActivity {
         requestPermissions();
         model.createNotificationChannel();
 
-        Intent intent = getIntent();
-        if (intent != null){
-            Uri data = intent.getData();
-
-
-        }
     }
 
     @Override

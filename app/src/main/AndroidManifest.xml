@@ -36,14 +36,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.APP_MUSIC"/>
-                <data android:mimeType="text/plain"/>
-                <data android:scheme="song"/>
+                <action android:name="android.intent.action.SENDTO"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="sms"/>
+                <data android:scheme="smsto"/>
             </intent-filter>
         </activity>
-        <activity android:name=".UI.Views.Activities.FindSharedSongActivity" android:exported="true">
-
+        <activity
+            android:name=".UI.Views.Activities.FindSharedSongActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category
+                    android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
         </activity>
     </application>
 
