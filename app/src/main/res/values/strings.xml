@@ -22,4 +22,5 @@
     <string name="switch2_key">switch_1_preference_for_acc</string>
     <string name="switch3_key">switch_2_preference_for_acc</string>
     <string name="shared_song_message">Song we found depending on shared:</string>
+    <string name="KEY_MUSIC_URI">I_DONT_KNOW_WHAT_TO_TYPE_HERE</string>
 </resources>

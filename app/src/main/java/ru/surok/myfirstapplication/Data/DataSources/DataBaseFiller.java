@@ -11,7 +11,7 @@ import ru.surok.myfirstapplication.R;
 
 public class DataBaseFiller extends RoomDatabase.Callback {
     @Override
-    public void onOpen(@NonNull SupportSQLiteDatabase db) {
+    public void onCreate(@NonNull SupportSQLiteDatabase db) {
         ContentValues values = new ContentValues();
         for(int j = 65; j <= 70; j++) {
             for (int i = 65; i <= 90; i++) {

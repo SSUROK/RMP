@@ -17,11 +17,11 @@
                 <action android:name="APP_SPECIFIC_BROADCAST" />
             </intent-filter>
         </receiver>
-        <service android:name=".UI.Services.PlayMusicService"
+        <service android:name=".Domain.Services.PlayMusicService"
             android:enabled="true"
             android:exported="false"
             android:foregroundServiceType="mediaPlayback" />
-        <service android:name=".UI.Services.GetBackService"
+        <service android:name=".Domain.Services.GetBackService"
             android:enabled="true"
             android:exported="true" />
         <activity

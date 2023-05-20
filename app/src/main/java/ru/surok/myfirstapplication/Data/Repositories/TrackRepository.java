@@ -65,11 +65,6 @@ public class TrackRepository {
         });
     }
 
-    public void deleteAll(){
-        SongDatabase.databaseWriteExecutor.execute(()->
-                songDatabase.songDao().deleteAll());
-    }
-
     public LiveData<List<SongModel>> getDatabaseData() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             return Transformations.map(
@@ -79,6 +74,10 @@ public class TrackRepository {
             );
         }
         return null;
+    }
+
+    public void deleteDB(Context context){
+        songDatabase.terminate(context);
     }
 
 }

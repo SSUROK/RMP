@@ -1,4 +1,4 @@
-package ru.surok.myfirstapplication.UI.Services;
+package ru.surok.myfirstapplication.Domain.Services;
 
 import android.app.Service;
 import android.content.Context;
