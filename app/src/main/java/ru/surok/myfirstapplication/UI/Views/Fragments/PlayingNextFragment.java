@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.transition.TransitionInflater;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +35,15 @@ public class PlayingNextFragment extends Fragment {
 
 
     public PlayingNextFragment() {
-        super(R.layout.fragment_playing_next);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        TransitionInflater inflater =
+                TransitionInflater.from(requireContext());
+        setEnterTransition(inflater.inflateTransition(R.transition.fade));
+
     }
 
     @Override
@@ -51,7 +60,6 @@ public class PlayingNextFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding.playingNextList.setAdapter(new MyRecyclerViewAdapter(getActivity(), R.layout.custom_list_view));
-
         model.getCurrent().observe(getViewLifecycleOwner(), song->{
             int index = model.getSongs().getValue().indexOf(song) +1;
             List<ListItem> temp = ListSongModelToListListItem.changeToIter(

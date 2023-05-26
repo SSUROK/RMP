@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.transition.TransitionInflater;
 
 import ru.surok.myfirstapplication.Data.Models.SongModel;
 import ru.surok.myfirstapplication.Domain.ListSongModelToListListItem;
@@ -22,7 +23,16 @@ import ru.surok.myfirstapplication.databinding.FragmentMusicLibraryBinding;
 public class MusicLibraryFragment extends Fragment implements MusicLibraryAdapter.clickInterface {
 
     public MusicLibraryFragment() {
-        super(R.layout.fragment_music_library);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        TransitionInflater inflater =
+                TransitionInflater.from(requireContext());
+        setEnterTransition(inflater.inflateTransition(R.transition.slide_bottom));
+        setExitTransition(inflater.inflateTransition(R.transition.slide_bottom));
+//        setReenterTransition(inflater.inflateTransition(R.transition.slide_left));
     }
 
     @Nullable

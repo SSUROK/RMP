@@ -1,6 +1,7 @@
 package ru.surok.myfirstapplication.UI.Views.Fragments;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,10 +42,13 @@ public class PlayBtFragment extends Fragment {
         model.getSong().observe(getViewLifecycleOwner(), s->{
             binding.playBtTextview.setText(s.getName());
         });
+
+        AnimatedVectorDrawable avd = (AnimatedVectorDrawable) binding.btPlay.getBackground();
         binding.btPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                model.play();
+                avd.start();
+//                model.play();
 //                serviceIntent = new Intent(getActivity(), PlayMusicService.class);
 //                getActivity().startService(serviceIntent);
             }

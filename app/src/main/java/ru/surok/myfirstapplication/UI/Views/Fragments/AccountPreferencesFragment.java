@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.transition.TransitionInflater;
 
 import ru.surok.myfirstapplication.UI.VIewModels.AccountViewModel;
 import ru.surok.myfirstapplication.R;
@@ -20,7 +21,14 @@ public class AccountPreferencesFragment extends Fragment {
     private AccountViewModel model;
 
     public AccountPreferencesFragment() {
-        super(R.layout.fragment_account_preferences);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        TransitionInflater inflater =
+                TransitionInflater.from(requireContext());
+        setEnterTransition(inflater.inflateTransition(R.transition.slide_right));
     }
 
     @Nullable

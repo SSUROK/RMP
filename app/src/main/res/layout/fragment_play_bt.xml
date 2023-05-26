@@ -8,7 +8,7 @@
         android:id="@+id/bt_play"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/play_bt_background"
+        android:background="@drawable/avd_anim"
         android:contentDescription="@string/play_bt_descript"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
