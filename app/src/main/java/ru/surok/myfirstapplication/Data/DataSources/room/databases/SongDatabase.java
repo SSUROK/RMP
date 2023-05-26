@@ -11,6 +11,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -49,5 +50,11 @@ public abstract class SongDatabase extends RoomDatabase {
             }
         }
         return INSTANCE;
+    }
+
+    public void terminate(Context context){
+        INSTANCE.close();
+        File databasefile = context.getDatabasePath("song_database");
+        databasefile.delete();
     }
 }

@@ -22,12 +22,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="25dp"
-        android:layout_marginBottom="5dp">
+        android:paddingBottom="20dp">
 
         <ImageButton
             android:id="@+id/bt_play"
-            android:layout_width="@dimen/small_bt_size"
-            android:layout_height="@dimen/small_bt_size"
+            android:layout_width="@dimen/medium_bt_size"
+            android:layout_height="60dp"
             android:contentDescription="@string/play_bt_descript"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/bt_next_playing"
@@ -37,8 +37,9 @@
 
         <ImageButton
             android:id="@+id/bt_next"
-            android:layout_width="@dimen/small_bt_size"
-            android:layout_height="@dimen/small_bt_size"
+            android:layout_width="@dimen/medium_bt_size"
+            android:layout_height="60dp"
+            android:layout_marginStart="40dp"
             android:contentDescription="@string/decript_next_song"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/bt_play"
@@ -47,8 +48,9 @@
 
         <ImageButton
             android:id="@+id/bt_prev"
-            android:layout_width="@dimen/small_bt_size"
-            android:layout_height="@dimen/small_bt_size"
+            android:layout_width="@dimen/medium_bt_size"
+            android:layout_height="60dp"
+            android:layout_marginEnd="40dp"
             android:contentDescription="@string/decript_prev_song"
             app:layout_constraintEnd_toStartOf="@id/bt_play"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,14 +59,15 @@
 
         <ImageButton
             android:id="@+id/bt_next_playing"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            app:layout_constraintEnd_toStartOf="@+id/bt_play"
-            app:layout_constraintStart_toEndOf="@+id/bt_prev"
+            android:layout_width="@dimen/small_bt_size"
+            android:layout_height="@dimen/small_bt_size"
+            app:layout_constraintEnd_toStartOf="@+id/bt_like"
             app:layout_constraintTop_toBottomOf="@id/bt_play"
             app:layout_constraintEnd_toEndOf="parent"
             android:background="@drawable/small_button_background"
             android:layout_weight="1"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="5dp"
             android:adjustViewBounds="true"
             android:padding="4dp"
@@ -73,18 +76,34 @@
 
         <ImageButton
             android:id="@+id/bt_like"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="@dimen/small_bt_size"
+            android:layout_height="@dimen/small_bt_size"
             android:background="@drawable/small_button_background"
             android:layout_weight="1"
             android:layout_marginBottom="5dp"
             android:adjustViewBounds="true"
             android:padding="4dp"
+            android:layout_marginTop="20dp"
             android:scaleType="fitCenter"
             app:layout_constraintTop_toBottomOf="@id/bt_play"
             app:layout_constraintEnd_toStartOf="@+id/bt_next"
-            app:layout_constraintStart_toEndOf="@+id/bt_play"
+            app:layout_constraintStart_toEndOf="@+id/bt_prev"
             app:srcCompat="@drawable/heart" />
+        <ImageButton
+            android:id="@+id/bt_share"
+            android:layout_width="@dimen/small_bt_size"
+            android:layout_height="@dimen/small_bt_size"
+            android:background="@drawable/small_button_background"
+            android:layout_weight="1"
+            android:layout_marginBottom="5dp"
+            android:adjustViewBounds="true"
+            android:padding="4dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintTop_toBottomOf="@id/bt_next"
+            app:layout_constraintStart_toEndOf="@+id/bt_like"
+            app:srcCompat="@drawable/share" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
