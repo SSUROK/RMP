@@ -11,8 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import ru.surok.myfirstapplication.UI.VIewModels.BottomPlayerViewModel;
-import ru.surok.myfirstapplication.UI.Services.PlayMusicService;
 import ru.surok.myfirstapplication.R;
 import ru.surok.myfirstapplication.UI.VIewModels.PlayBtViewModel;
 import ru.surok.myfirstapplication.databinding.FragmentPlayBtBinding;

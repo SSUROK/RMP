@@ -4,5 +4,6 @@
     <dimen name="bt_big_size_w">150dp</dimen>
     <dimen name="text_size">32sp</dimen>
     <dimen name="small_bt_size">50dp</dimen>
+    <dimen name="medium_bt_size">75dp</dimen>
 
 </resources>
