@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
-import ru.surok.myfirstapplication.Data.DataSources.ListItem;
+import ru.surok.myfirstapplication.Data.Models.ListItem;
 import ru.surok.myfirstapplication.Data.Models.SongModel;
 
 public class ListSongModelToListListItem {

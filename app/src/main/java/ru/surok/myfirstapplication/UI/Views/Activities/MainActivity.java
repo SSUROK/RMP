@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         model = new ViewModelProvider(this).get(MainActivityViewModel.class);
         requestPermissions();
         model.createNotificationChannel();
-
+        model.getAllPosts();
     }
 
     public void requestPermissions(){
@@ -54,11 +54,15 @@ public class MainActivity extends AppCompatActivity {
                         Manifest.permission.POST_NOTIFICATIONS,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE,
                         Manifest.permission.READ_EXTERNAL_STORAGE,
-                        Manifest.permission.SYSTEM_ALERT_WINDOW
+                        Manifest.permission.SYSTEM_ALERT_WINDOW,
+                        Manifest.permission.INTERNET
                 }, PERMISSION_REQUEST_CODE);
                 return "perms requested";
             } else return "Perms not requested";
         };
+        ActivityCompat.requestPermissions(this, new String[]{
+                Manifest.permission.INTERNET
+        }, PERMISSION_REQUEST_CODE);
         Callable<String> requestingOverlay = ()-> {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (!Settings.canDrawOverlays(this)) {

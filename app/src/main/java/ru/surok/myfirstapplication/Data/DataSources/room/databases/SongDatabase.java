@@ -1,29 +1,18 @@
 package ru.surok.myfirstapplication.Data.DataSources.room.databases;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.os.Build;
 
-import androidx.annotation.NonNull;
 import androidx.room.Database;
-import androidx.room.OnConflictStrategy;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import ru.surok.myfirstapplication.Data.DataSources.DataBaseFiller;
-import ru.surok.myfirstapplication.Data.DataSources.ListItem;
 import ru.surok.myfirstapplication.Data.DataSources.room.Entity.SongEntity;
 import ru.surok.myfirstapplication.Data.DataSources.room.dao.SongDao;
-import ru.surok.myfirstapplication.Data.Models.SongModel;
-import ru.surok.myfirstapplication.R;
 
 @Database(entities = {SongEntity.class}, version = 1)
 public abstract class SongDatabase extends RoomDatabase {

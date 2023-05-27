@@ -1,13 +1,9 @@
 package ru.surok.myfirstapplication.UI.Adapters;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,9 +13,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-import ru.surok.myfirstapplication.Data.DataSources.ListItem;
-import ru.surok.myfirstapplication.Data.Models.SongModel;
-import ru.surok.myfirstapplication.R;
+import ru.surok.myfirstapplication.Data.Models.ListItem;
 import ru.surok.myfirstapplication.databinding.CustomListViewBinding;
 
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {

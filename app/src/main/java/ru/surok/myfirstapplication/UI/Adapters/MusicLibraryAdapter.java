@@ -13,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-import ru.surok.myfirstapplication.Data.DataSources.ListItem;
+import ru.surok.myfirstapplication.Data.Models.ListItem;
 import ru.surok.myfirstapplication.Data.Models.SongModel;
 import ru.surok.myfirstapplication.databinding.CustomListViewBinding;
 

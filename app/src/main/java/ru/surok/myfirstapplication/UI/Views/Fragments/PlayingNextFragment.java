@@ -11,18 +11,11 @@ import androidx.transition.TransitionInflater;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
 
-import ru.surok.myfirstapplication.Data.DataSources.ListItem;
-import ru.surok.myfirstapplication.Data.Models.SongModel;
+import ru.surok.myfirstapplication.Data.Models.ListItem;
 import ru.surok.myfirstapplication.Domain.ListSongModelToListListItem;
-import ru.surok.myfirstapplication.Domain.ListsFillerUseCase;
-import ru.surok.myfirstapplication.UI.Adapters.MyListViewAdapter;
 import ru.surok.myfirstapplication.UI.Adapters.MyRecyclerViewAdapter;
 import ru.surok.myfirstapplication.UI.VIewModels.PlayingNextViewModel;
 import ru.surok.myfirstapplication.R;

@@ -48,7 +48,7 @@ public class PlayBtFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 avd.start();
-//                model.play();
+                model.play();
 //                serviceIntent = new Intent(getActivity(), PlayMusicService.class);
 //                getActivity().startService(serviceIntent);
             }

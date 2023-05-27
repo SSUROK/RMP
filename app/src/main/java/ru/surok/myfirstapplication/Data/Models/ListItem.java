@@ -1,4 +1,4 @@
-package ru.surok.myfirstapplication.Data.DataSources;
+package ru.surok.myfirstapplication.Data.Models;
 
 public class ListItem {
 

@@ -1,37 +1,22 @@
 package ru.surok.myfirstapplication.UI.VIewModels;
 
-import android.Manifest;
-import android.app.Activity;
 import android.app.Application;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
-import android.provider.Settings;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.ViewModel;
 
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-
-import ru.surok.myfirstapplication.Data.DataSources.room.Entity.SongEntity;
-import ru.surok.myfirstapplication.Data.Models.SongModel;
+import ru.surok.myfirstapplication.Data.Repositories.PostAPIRepository;
 import ru.surok.myfirstapplication.Data.Repositories.TrackRepository;
-import ru.surok.myfirstapplication.R;
 
 public class MainActivityViewModel extends AndroidViewModel {
 
     private final TrackRepository trackRepository;
+    private final PostAPIRepository postAPIRepository;
 
     public MainActivityViewModel(@NonNull Application application) {
         super(application);
         trackRepository = TrackRepository.getInstance(application);
+        postAPIRepository = new PostAPIRepository();
 //        trackRepository.addSong(new SongModel("mock song", "mock band", 0));
     }
 
@@ -52,8 +37,11 @@ public class MainActivityViewModel extends AndroidViewModel {
 //        executorService.shutdown();
     }
 
-
     public void deleteDB(){
         trackRepository.deleteDB(getApplication());
+    }
+
+    public void getAllPosts(){
+        postAPIRepository.getAllPosts();
     }
 }
